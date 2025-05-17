@@ -42,6 +42,8 @@ const Contact = () => {
     }, []);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleMouseMove = (e: MouseEvent) => {
             if (!boxRef.current) return;
 
@@ -87,7 +89,7 @@ const Contact = () => {
                     Contact Us
                 </h2>
                 <p className={`text-xl text-center text-gray-600 mb-16 transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                    We'd love to hear your feedback!
+                    We&apos;d love to hear your feedback!
                 </p>
 
                 <div className="flex flex-col lg:flex-row gap-12 items-center">
@@ -173,7 +175,7 @@ const Contact = () => {
 
                                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex flex-col items-center justify-center p-6 backface-hidden rotate-y-180">
                                     <div className="text-6xl mb-4">💬</div>
-                                    <h3 className="text-2xl font-bold text-white text-center">We're Listening</h3>
+                                    <h3 className="text-2xl font-bold text-white text-center">We&apos;re Listening</h3>
                                 </div>
                             </div>
                         </div>

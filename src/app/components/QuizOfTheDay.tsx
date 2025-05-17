@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 type Dot = {
     width: number;
@@ -36,6 +36,8 @@ const QuizOfTheDay = () => {
     };
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleScroll = () => {
             setScrollY(window.scrollY);
         };
@@ -97,7 +99,7 @@ const QuizOfTheDay = () => {
     return (
         <div className="relative min-h-[600px] overflow-hidden bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
             <div className="absolute inset-0 overflow-hidden">
-                {dots.map((dot, i) => (
+                {dots.map((dot) => (
                     <div
                         key={Math.random()}
                         className="absolute rounded-full bg-white"
@@ -181,7 +183,7 @@ const QuizOfTheDay = () => {
                 </div>
 
                 <div className={`max-w-md transition-all duration-500 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} lg:opacity-100 lg:translate-y-0`}>
-                    <h2 className="text-4xl font-bold text-white mb-4">Today's Special Challenge</h2>
+                    <h2 className="text-4xl font-bold text-white mb-4">Today&apos;s Special Challenge</h2>
                     <p className="text-xl text-gray-300 mb-6">
                         Test your knowledge about space exploration with our advanced quiz featuring 20 questions in just 15 minutes.
                     </p>

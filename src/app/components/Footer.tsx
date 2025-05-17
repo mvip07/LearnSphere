@@ -22,6 +22,8 @@ const Footer = () => {
     }, []);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
@@ -134,7 +136,7 @@ const Footer = () => {
                                 { icon: '📘', name: 'Facebook' },
                                 { icon: '📸', name: 'Instagram' },
                                 { icon: '🎥', name: 'YouTube' }
-                            ].map((social, index) => (
+                            ].map((social) => (
                                 <a
                                     href="#"
                                     key={social.name}

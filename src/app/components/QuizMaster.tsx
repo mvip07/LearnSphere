@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 
 const QuizMaster = () => {
     const [typedText, setTypedText] = useState('');
@@ -9,12 +9,12 @@ const QuizMaster = () => {
     const ctaRef = useRef<HTMLDivElement>(null);
     const deviceRef = useRef<HTMLDivElement>(null);
 
-    const messages = [
+    const messages = useMemo(() => [
         "Create amazing quizzes...",
         "Engage your audience...",
         "Share your knowledge...",
         "Become a Quiz Master!"
-    ];
+    ], []);
     const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
     useEffect(() => {
@@ -36,19 +36,26 @@ const QuizMaster = () => {
         type();
 
         return () => clearTimeout(timeout);
-    }, [currentMessageIndex]);
+    }, [currentMessageIndex, messages]);
 
     useEffect(() => {
+        const ctaElement = ctaRef.current;
+
         const observer = new IntersectionObserver(
             ([entry]) => setIsVisible(entry.isIntersecting),
             { threshold: 0.1 }
         );
 
-        if (ctaRef.current) observer.observe(ctaRef.current);
-        return () => observer.disconnect();
+        if (ctaElement) observer.observe(ctaElement);
+
+        return () => {
+            if (ctaElement) observer.unobserve(ctaElement);
+        };
     }, []);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleMouseMove = (e: MouseEvent) => {
             if (!deviceRef.current) return;
 

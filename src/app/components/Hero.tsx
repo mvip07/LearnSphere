@@ -41,14 +41,12 @@ const Particles = () => {
 
     useFrame(() => {
         if (particlesRef.current) {
-            const positions = particlesRef?.current?.geometry?.attributes?.position?.array;
-            if (positions) {
-                for (let i = 0; i < count * 3; i += 3) {
-                    positions[i + 1] -= 0.02;
-                    if (positions[i + 1] < -5) positions[i + 1] = 5;
-                }
-                particlesRef.current.geometry.attributes.position.needsUpdate = true;
+            const positions = particlesRef.current.geometry.attributes.position.array as Float32Array;
+            for (let i = 0; i < count * 3; i += 3) {
+                positions[i + 1] -= 0.02;
+                if (positions[i + 1] < -5) positions[i + 1] = 5;
             }
+            particlesRef.current.geometry.attributes.position.needsUpdate = true;
         }
     });
 
@@ -66,19 +64,23 @@ const Hero = () => {
     const scrollRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        gsap.fromTo(
-            textRef.current,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
-        );
+        if (textRef.current) {
+            gsap.fromTo(
+                textRef.current,
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }
+            );
+        }
 
-        gsap.to(scrollRef.current, {
-            y: 5,
-            repeat: -1,
-            yoyo: true,
-            duration: 0.5,
-            ease: 'power1.inOut',
-        });
+        if (scrollRef.current) {
+            gsap.to(scrollRef.current, {
+                y: 5,
+                repeat: -1,
+                yoyo: true,
+                duration: 0.5,
+                ease: 'power1.inOut',
+            });
+        }
 
         const handleMouseMove = (e: MouseEvent) => {
             if (ctaRef.current) {
@@ -110,12 +112,14 @@ const Hero = () => {
             }
         };
 
+        const ctaElement = ctaRef.current;
+
         window.addEventListener('mousemove', handleMouseMove);
-        if (ctaRef.current) ctaRef.current.addEventListener('mouseleave', handleMouseLeave);
+        if (ctaElement) ctaElement.addEventListener('mouseleave', handleMouseLeave);
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-            if (ctaRef.current) ctaRef.current.removeEventListener('mouseleave', handleMouseLeave);
+            if (ctaElement) ctaElement.removeEventListener('mouseleave', handleMouseLeave);
         };
     }, []);
 

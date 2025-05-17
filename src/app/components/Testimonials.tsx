@@ -1,16 +1,5 @@
-// app/testimonials/page.tsx
-"use client";
-
-import { useState, useEffect, useRef } from 'react';
-
-type Testimonial = {
-    id: number;
-    name: string;
-    role: string;
-    content: string;
-    emoji: string;
-    color: string;
-};
+"use client"
+import { useState, useEffect, useRef, useMemo } from 'react';
 
 const TestimonialSlider = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -19,7 +8,7 @@ const TestimonialSlider = () => {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [floatingEmojis, setFloatingEmojis] = useState<{ id: number; emoji: string; left: number; top: number }[]>([]);
 
-    const testimonials: Testimonial[] = [
+    const testimonials = useMemo(() => [
         {
             id: 1,
             name: "Sarah Johnson",
@@ -52,23 +41,28 @@ const TestimonialSlider = () => {
             emoji: "💻",
             color: "bg-yellow-500"
         }
-    ];
+    ], []);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                setIsVisible(true);
-                addFloatingEmojis();
-            }
-        }, { threshold: 0.1 });
+        const sectionElement = sectionRef.current;
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    addFloatingEmojis();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (sectionElement) {
+            observer.observe(sectionElement);
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
+            if (sectionElement) {
+                observer.unobserve(sectionElement);
             }
         };
     }, []);
@@ -112,6 +106,8 @@ const TestimonialSlider = () => {
     };
 
     const handleCardClick = () => {
+        if (typeof window === 'undefined') return;
+
         if (window.innerWidth < 768) {
             setActiveIndex((prev) => (prev + 1) % testimonials.length);
         }
@@ -134,7 +130,7 @@ const TestimonialSlider = () => {
                     What Our Users Say
                 </h2>
                 <p className="text-xl text-center text-gray-600 mb-12">
-                    Don't just take our word for it
+                    Don&apos;t just take our word for it
                 </p>
 
                 <div className="relative h-96 md:h-80 perspective-1000">
@@ -174,7 +170,7 @@ const TestimonialSlider = () => {
                                     <div className="text-white">
                                         <p className="text-5xl mb-4">{testimonial.emoji}</p>
                                         <p className="text-xl md:text-2xl font-medium mb-6">
-                                            "{testimonial.content}"
+                                            &quot;{testimonial.content}&quot;
                                         </p>
                                     </div>
                                     <div>

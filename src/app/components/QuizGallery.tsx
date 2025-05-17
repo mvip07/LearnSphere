@@ -1,6 +1,5 @@
-"use client";
-
-import { useState, useEffect, useRef } from 'react';
+"use client"
+import { useEffect, useRef, useState } from "react";
 
 type Quiz = {
     id: number;
@@ -19,9 +18,7 @@ const QuizGallery = () => {
     const [isVisible, setIsVisible] = useState(false);
     const galleryRef = useRef<HTMLDivElement>(null);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [hasMounted, setHasMounted] = useState(false);
 
-    // Sample quiz data
     const quizzes: Quiz[] = [
         {
             id: 1,
@@ -91,7 +88,6 @@ const QuizGallery = () => {
         }
     ];
 
-    // Filter quizzes based on selection
     const filteredQuizzes = activeFilter === 'all'
         ? quizzes
         : quizzes.filter(quiz =>
@@ -99,8 +95,9 @@ const QuizGallery = () => {
             quiz.difficulty.toLowerCase() === activeFilter
         );
 
-    // Track mouse position for 3D effect
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleMouseMove = (e: MouseEvent) => {
             setMousePosition({ x: e.clientX, y: e.clientY });
         };
@@ -109,8 +106,9 @@ const QuizGallery = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    // Intersection Observer for scroll animations
     useEffect(() => {
+        const galleryElement = galleryRef.current;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
@@ -122,18 +120,18 @@ const QuizGallery = () => {
             { threshold: 0.1 }
         );
 
-        if (galleryRef.current) {
-            observer.observe(galleryRef.current);
+        if (galleryElement) {
+            observer.observe(galleryElement);
         }
 
         return () => {
-            if (galleryRef.current) {
-                observer.unobserve(galleryRef.current);
+            if (galleryElement) {
+                observer.unobserve(galleryElement);
             }
         };
     }, []);
 
-    const cardTransform = hasMounted ? `rotateX(${(mousePosition.y - window.innerHeight / 2) / 40}deg) rotateY(${(mousePosition.x - window.innerWidth / 2) / 40}deg)` : undefined;
+    const cardTransform = `rotateX(${(mousePosition.y - window.innerHeight / 2) / 40}deg) rotateY(${(mousePosition.x - window.innerWidth / 2) / 40}deg)`;
 
     return (
         <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

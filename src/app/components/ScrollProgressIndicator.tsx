@@ -8,6 +8,8 @@ const ScrollProgress = () => {
     const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
@@ -25,6 +27,8 @@ const ScrollProgress = () => {
 
     const scrollToTop = () => {
         if (isAnimating) return;
+        if (typeof window === 'undefined') return;
+
 
         setIsAnimating(true);
 
@@ -46,9 +50,9 @@ const ScrollProgress = () => {
         }, 1000);
     };
 
-    const radius = 50;
-    const circumference = 2 * Math.PI * radius;
-    const dashoffset = circumference - (scrollProgress / 100) * circumference;
+    // const radius = 50;
+    // const circumference = 2 * Math.PI * radius;
+    // const dashoffset = circumference - (scrollProgress / 100) * circumference;
 
     return (
         <>

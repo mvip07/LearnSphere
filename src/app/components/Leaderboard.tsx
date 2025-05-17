@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 
 type Player = {
     id: number;
@@ -10,8 +10,15 @@ type Player = {
     change: number;
 };
 
-const Leaderboard = () => {
-    const [players, setPlayers] = useState<Player[]>([
+interface State {
+    players: Player[];
+    visiblePlayers: Player[];
+}
+
+type Action = | { type: 'UPDATE_SCORES' } | { type: 'SET_INITIAL_VISIBLE'; players: Player[] };
+
+const initialState: State = {
+    players: [
         { id: 1, name: 'Alex Johnson', score: 9850, avatar: 'AJ', change: 0 },
         { id: 2, name: 'Maria Garcia', score: 8720, avatar: 'MG', change: 1 },
         { id: 3, name: 'James Smith', score: 8450, avatar: 'JS', change: -1 },
@@ -22,9 +29,39 @@ const Leaderboard = () => {
         { id: 8, name: 'Olivia Wilson', score: 6540, avatar: 'OW', change: 1 },
         { id: 9, name: 'Daniel Miller', score: 6210, avatar: 'DM', change: -1 },
         { id: 10, name: 'Sophia Taylor', score: 5870, avatar: 'ST', change: 0 },
-    ]);
+    ],
+    visiblePlayers: [],
+};
+
+const reducer = (state: State, action: Action): State => {
+    switch (action.type) {
+        case 'SET_INITIAL_VISIBLE':
+            return { ...state, visiblePlayers: action.players.slice(0, 5) };
+        case 'UPDATE_SCORES':
+            const updated = [...state.players];
+            updated.forEach(p => {
+                const change = Math.floor(Math.random() * 100) - 30;
+                p.score = Math.max(0, p.score + change);
+                p.change = change;
+            });
+            updated.sort((a, b) => b.score - a.score);
+            const newPlayers = updated.map((p, i) => ({ ...p, id: i + 1 }));
+            return {
+                ...state,
+                players: newPlayers,
+                visiblePlayers: newPlayers.slice(0, 5),
+            };
+        default:
+            return state;
+    }
+};
+
+const Leaderboard = () => {
+
 
     const [visiblePlayers, setVisiblePlayers] = useState<Player[]>([]);
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     const getMedalColor = (index: number) => {
         switch (index) {
@@ -36,27 +73,19 @@ const Leaderboard = () => {
     };
 
     useEffect(() => {
-        setVisiblePlayers(players.slice(0, 5));
+        setVisiblePlayers(state.players)
+        dispatch({ type: 'SET_INITIAL_VISIBLE', players: state.players });
 
         const interval = setInterval(() => {
-            setPlayers(prev => {
-                const updated = [...prev];
-                updated.forEach(p => {
-                    const change = Math.floor(Math.random() * 100) - 30;
-                    p.score = Math.max(0, p.score + change);
-                    p.change = change;
-                });
-                updated.sort((a, b) => b.score - a.score);
-                return updated.map((p, i) => ({ ...p, id: i + 1 }));
-            });
+            dispatch({ type: 'UPDATE_SCORES' });
         }, 5000);
 
         return () => clearInterval(interval);
     }, []);
 
-    useEffect(() => {
-        setVisiblePlayers(players.slice(0, 5));
-    }, [players]);
+    // useEffect(() => {
+    //     setVisiblePlayers(reducer..slice(0, 5));
+    // }, []);
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 py-12 px-4 sm:px-6 lg:px-8">

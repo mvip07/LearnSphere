@@ -49,6 +49,7 @@ const About = () => {
     useEffect(() => {
         const handleScroll = () => {
             if (!sectionRef.current) return;
+            if (typeof window === 'undefined') return;
 
             const { scrollY } = window;
             const { offsetTop, offsetHeight } = sectionRef.current;
@@ -75,7 +76,7 @@ const About = () => {
 
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [milestones.length]);
 
     const parallaxLayers = [
         { speed: 0.1, position: scrollProgress * 100 * 0.1 },
