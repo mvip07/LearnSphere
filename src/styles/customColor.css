@@ -1,0 +1,37 @@
+:root {
+    --whi: #FFF;
+    --red: #DC3545;
+    --body: #F1F5F9;
+    --gray: #E7E7E7;
+    --dark: #1C2434;
+    --error: #CD5D5D;
+    --green: #10B981;
+    --whiLg: #E2E8F0;
+    --textCl: #64748B;
+    --lgblue: #EFF4FB;
+    --mobile: #8FD0EF;
+    --yellow: #F0950C;
+    --tablet: #6577F3;
+    --unknow: #0FADCF;
+    --primary: #3C50E0;
+    --menuLink: #8A99AF;
+    --authText: #596080;
+    --grayDark: #E5E7EB;
+    --darkBoxBg: #24303f;
+    --tailGrids: #637381;
+    --menuActive: #333A48;
+    --tableHeader: #F7F9FC;
+    --menuLinkDef: #DEE4EE;
+    --tailGridsBlack: #212B36;
+    --firstPlace: #FFD700;
+    --secondPlace: #C0C0C0;
+    --thirdPlace: #CD7F32;
+    --bodyDark: #1a222c;
+    --darkTextCl: #AEB7C0;
+    --darkFollower: #37404F;
+    --darkBorderCl: #2e3a47;
+    --darkInput: #1d2a39;
+    --darkInputBorder: #3d4d60;
+    --darkPlaceholder: #9ca3af;
+    --darkTableHeader: #313d4a;
+}

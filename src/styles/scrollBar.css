@@ -1,0 +1,22 @@
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 3px;
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--primary);
+}
+
+.design-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.scrol-bar-none {
+    overflow: auto;
+}
+
+.scroll-bar-none::-webkit-scrollbar {
+    display: none;
+}

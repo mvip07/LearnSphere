@@ -1,36 +1,34 @@
 'use client';
-import dynamic from 'next/dynamic';
-
-const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
-// import About from "../components/About";
-// import Guide from "../components/Guide";
-// import Footer from "../components/Footer";
-// import Contact from "../components/Contact";
-// import Leaderboard from "../components/Leaderboard";
-// import QuizGallery from "../components/QuizGallery";
-// import QuizMasterCTA from "../components/QuizMaster";
-// import Achievements from "../components/Achievements";
-// import QuizOfTheDay from "../components/QuizOfTheDay";
-// import QuizCategories from "../components/QuizCategories";
-// import TestimonialSlider from "../components/Testimonials";
-// import ScrollProgressIndicator from "../components/ScrollProgressIndicator";
+import Hero from "./components/cabinet/home/Hero";
+import About from "./components/cabinet/home/About";
+import Guide from "./components/cabinet/home/Guide";
+import Footer from "./components/cabinet/home/Footer";
+import Contact from "./components/cabinet/home/Contact";
+import Leaderboard from "./components/cabinet/home/Leaderboard";
+import QuizGallery from "./components/cabinet/home/QuizGallery";
+import QuizMasterCTA from "./components/cabinet/home/QuizMaster";
+import Achievements from "./components/cabinet/home/Achievements";
+import QuizOfTheDay from "./components/cabinet/home/QuizOfTheDay";
+import QuizCategories from "./components/cabinet/home/QuizCategories";
+import TestimonialSlider from "./components/cabinet/home/Testimonials";
+import ScrollProgressIndicator from "./components/cabinet/home/ScrollProgressIndicator";
 
 export default function Home() {
     return (
         <>
             <Hero />
-            {/* <QuizCategories /> */}
-            {/* <Leaderboard /> */}
-            {/* <QuizOfTheDay /> */}
-            {/* <TestimonialSlider /> */}
-            {/* <Achievements /> */}
-            {/* <Guide /> */}
-            {/* <QuizMasterCTA /> */}
-            {/* <ScrollProgressIndicator /> */}
-            {/* <QuizGallery /> */}
-            {/* <About /> */}
-            {/* <Contact /> */}
-            {/* <Footer /> */}
+            <QuizCategories />
+            <Leaderboard />
+            <QuizOfTheDay />
+            <TestimonialSlider />
+            <Achievements />
+            <Guide />
+            <QuizMasterCTA />
+            <ScrollProgressIndicator />
+            <QuizGallery />
+            <About />
+            <Contact />
+            <Footer />
         </>
     );
 }

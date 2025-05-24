@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@import "./input.css";
+@import "./button.css";
+@import "./loader.css";
+@import "./scrollBar.css";
+@import "./container.css";
+@import "./animations.css";
+@import "./customColor.css";
+
+body {
+    font-family: "Montserrat", serif;
+}
+
+.transform-style-preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.box-shadow {
+    box-shadow: 0px 8px 13px -3px rgba(0, 0, 0, 0.07) !important;
+}
+
+.shadow-filter {
+    backdrop-filter: blur(30px);
+    box-shadow: 0px 1px 2px 0px #EFE8E899 inset;
+}
+
+.file-upload {
+    border: 0;
+    width: 1px;
+    padding: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+}
