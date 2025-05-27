@@ -1,15 +1,9 @@
 import { useState } from "react";
+import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { showToast } from "@/assets/utils/toatify";
 import { forgotPasswordRequest } from "../api/authApi";
-
-interface ForgotPasswordState {
-    email: string;
-}
-
-interface ValidationErrors {
-    [key: string]: string[];
-}
+import { ForgotPasswordState, ValidationErrors } from "@/types/Auth/auth.t";
 
 export const useForgotPassword = () => {
     const router = useRouter();
@@ -30,9 +24,10 @@ export const useForgotPassword = () => {
             const response = await forgotPasswordRequest(forgotPassword);
             showToast("success", response?.data.message);
             router.push(`/auth/check-email`);
-        } catch (error: any) {
-            showToast("error", error?.response?.data.message || "Enter the information correctly");
-            setValidOrInvalid(error?.res?.data?.errors || {});
+        } catch (error) {
+            const err = error as AxiosError<{ message?: string; errors?: { [key: string]: string[] } }>;
+            showToast("error", err?.response?.data?.message || "Enter the information correctly");
+            setValidOrInvalid(err?.response?.data?.errors || {});
         } finally {
             setLoading(false);
         }

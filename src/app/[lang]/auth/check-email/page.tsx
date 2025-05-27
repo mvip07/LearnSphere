@@ -7,11 +7,11 @@ export default function CheckEmail() {
     return (
         <form onSubmit={(e) => { e.preventDefault(); goTo("auth/login") }} className="w-full h-full overflow-auto scroll-bar-none">
             <h2 className="font-bold text-[var(--dark)] dark:text-[var(--whi)] text-[22px] md:text-[28px] text-start leading-[24px] md:leading-[36px]">
-                We've Sent You a Link
+                We&apos;ve Sent You a Link
             </h2>
             <p className="text-[14px] text-[var(--authText)] text-start font-medium leading-normal mt-3">
                 Please check your email inbox and click on the provided link to reset your
-                password. If you don’t receive email,
+                password. If you don&apos;t receive email,
                 <span onClick={() => goTo("auth/forgot-password")} className="mt-5 font-medium text-[14px] leading-normal text-[var(--primary)] cursor-pointer ms-2">
                     Click here to resend
                 </span>

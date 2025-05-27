@@ -1,7 +1,9 @@
 import React from "react";
 
-export default function Auth({ children }: { children: React.ReactNode }) {
+export default function Auth() {
     return (
-        children
+        <div>
+            Login yoki Register formasi
+        </div>
     )
 }

@@ -1,23 +1,12 @@
-import { useState, useCallback } from "react";
+import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import { useState, useCallback } from "react";
 import { loginRequest } from "../api/authApi";
 import { showToast } from "@/assets/utils/toatify";
+import APIError from "@/services/apiError/apiError";
+import { ApiErrorProps } from "@/types/ApiError/apiError.t";
 import { useVerificationStore } from '@/stores/verificationStore';
-import APIError, { ApiErrorProps } from "@/services/apiError/apiError";
-
-interface LoginState {
-    email: string;
-    password: string;
-}
-
-interface ValidationErrors {
-    [key: string]: string[];
-}
-
-interface VisiblePassword {
-    visible: string;
-    active: boolean;
-}
+import { LoginUser, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
 
 export const useLogin = () => {
     const router = useRouter();
@@ -25,7 +14,7 @@ export const useLogin = () => {
 
     const [loading, setLoading] = useState<boolean>(false);
     const [validOrInvalid, setValidOrInvalid] = useState<ValidationErrors>({});
-    const [login, setLogin] = useState<LoginState>({ email: "", password: "" });
+    const [login, setLogin] = useState<LoginUser>({ email: "", password: "" });
     const [passwordVisible, setPasswordVisible] = useState<VisiblePassword>({ visible: "", active: false });
 
     const togglePasswordVisibility = useCallback((field: string) => {
@@ -57,10 +46,10 @@ export const useLogin = () => {
                 router.push(res.data.url);
             }
 
-        } catch (error: any) {
-            setValidOrInvalid(error?.response?.data?.errors || {});
+        } catch (error) {
+            const err = error as AxiosError<{ errors?: { [key: string]: string[] } }>;
+            setValidOrInvalid(err?.response?.data?.errors || {});
             APIError(error as ApiErrorProps)
-            console.log(validOrInvalid)
         } finally {
             setLoading(false);
         }

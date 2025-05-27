@@ -6,7 +6,6 @@ import GoogleAuthButton from "@/services/googleAuth/GoogleAuthButton";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useGoToNextPage } from "@/hooks/useGoToNextPage";
 
-
 export default function Register() {
     const goTo = useGoToNextPage()
     const { fields, handleInputChange, registerSubmit, validOrInvalid, loading, passwordVisible, togglePasswordVisibility } = useRegister();

@@ -1,22 +1,9 @@
+import { AxiosError } from "axios";
 import { useState, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
-
 import { showToast } from "@/assets/utils/toatify";
 import { resetPasswordRequest } from "../api/authApi";
-
-interface NewPasswordState {
-    password: string;
-    confirmPassword: string;
-}
-
-interface ValidationErrors {
-    [key: string]: string[];
-}
-
-interface VisiblePassword {
-    visible: string;
-    active: boolean;
-}
+import { NewPasswordState, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
 
 export const useNewPassword = () => {
     const router = useRouter();
@@ -54,9 +41,10 @@ export const useNewPassword = () => {
             const response = await resetPasswordRequest(token as string, newPassword);
             showToast("success", response?.data?.message);
             setTimeout(() => router.push(`/auth/login`), 1500);
-        } catch (error: any) {
-            showToast("error", error?.response?.data.message || "Enter the information correctly");
-            setValidOrInvalid(error?.res?.data?.errors || {});
+        } catch (error) {
+            const err = error as AxiosError<{ message?: string; errors?: { [key: string]: string[] } }>;
+            showToast("error", err?.response?.data?.message || "Enter the information correctly");
+            setValidOrInvalid(err?.response?.data?.errors || {});
         } finally {
             setLoading(false);
         }

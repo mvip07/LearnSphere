@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **LearnSphere Brand README**  
+*(Modern, Interactive & Data-Driven Learning Platform)*  
 
-## Getting Started
+---
 
-First, run the development server:
+## **🚀 Brand Overview**  
+**LearnSphere** – bu **innovatsion o‘quv va testlash platformasi** bo‘lib, foydalanuvchilarga barcha sohalar bo‘yicha sifatli bilim olish va o‘zlarini sinab ko‘rish imkoniyatini beradi. Bizning asosiy maqsad – **"O‘rgan, Testdan O‘t, Rivojlan"** prinsipiga asoslangan zamonaviy ta’lim ekotizimini yaratish.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## **🎨 Brand Identity**  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **1. Logo & Visual Style**  
+- **Logo:** Minimalist, tech-inspired design with:  
+  - **Globe + Brain** (global knowledge)  
+  - **Binary Code / Puzzle Pieces** (interactive learning)  
+- **Colors:**  
+  - **Primary:** `#2563EB` (Deep Blue) + `#10B981` (Vibrant Green)  
+  - **Secondary:** Gradient Purple (`#7C3AED` → `#EC4899`)  
+- **Typography:** **Poppins (Bold for headers, Medium for body)**  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![LearnSphere Logo Concept](https://via.placeholder.com/400x200/2563EB/FFFFFF?text=LearnSphere+Logo) *(Example: Replace with actual logo)*  
 
-## Learn More
+### **2. Motion & Animation**  
+- **Micro-interactions:**  
+  - **Loading spinner** (atom-inspired circular animation)  
+  - **Success Checkmark** (smooth Lottie animation after test completion)  
+- **Hero Section Animation:**  
+  - Floating **3D book icons** with particle effects (representing dynamic learning)  
 
-To learn more about Next.js, take a look at the following resources:
+![Loading Animation](https://via.placeholder.com/200x200/10B981/FFFFFF?text=Loading...) *(Example: Animated SVG/GSAP)*  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## **📊 Key Features (Diagrams)**  
 
-## Deploy on Vercel
+### **1. LearnSphere Workflow**  
+```mermaid  
+graph TD  
+    A[Start Learning] --> B[Interactive Lessons]  
+    B --> C[Quizzes & Practice]  
+    C --> D{Passed?}  
+    D -->|Yes| E[Get Certified]  
+    D -->|No| F[Review & Retry]  
+```  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### **2. AI-Powered Testing System**  
+![AI Testing Flow](https://via.placeholder.com/600x300/7C3AED/FFFFFF?text=AI+Test+Engine+Diagram) *(Concept: AI auto-generates adaptive tests)*  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## **🎯 Core Principles**  
+✅ **1. Learn** → Barcha sohalar bo‘yicha strukturli darsliklar  
+✅ **2. Test** → Real vaqtda bilimni tekshirish  
+✅ **3. Grow** → Har bir foydalanuvchi uchun shaxsiy statistika  
+
+---
+
+## **📱 Platform UI Examples**  
+| Section | Preview |  
+|---------|---------|  
+| **Dashboard** | ![Dashboard](https://via.placeholder.com/300x200/EC4899/FFFFFF?text=Dashboard+UI) |  
+| **Quiz Interface** | ![Quiz](https://via.placeholder.com/300x200/10B981/FFFFFF?text=Live+Quiz+Mode) |  
+
+---
+
+## **✨ Why LearnSphere?**  
+- **Zamonaviy UI/UX** (Gamification elements: Badges, Leaderboards)  
+- **AI-Driven Testing** (Adaptive difficulty, instant feedback)  
+- **Multi-Platform** (Web, Mobile, Telegram Bot)  
+
+---
+
+## **📂 Brand Assets**  
+- [Download Logo Pack (.SVG, .PNG)](link_here)  
+- [Style Guide (Colors, Fonts)](link_here)  
+- [Lottie Animations](link_here)  
+
+---  
+
+**🔗 Contact:** [hello@learnsphere.vercel.app](mailto:hello@learnsphere.uz) | [@LearnSphereUz](https://t.me/LearnSphereUz)  
+
+---  
+
+### **🎉 "O‘rganing, Sinab Ko‘ring, O‘sing!"**  
+*(Learn, Test, Grow!)*  
+
+---  

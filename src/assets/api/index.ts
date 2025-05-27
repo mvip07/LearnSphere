@@ -1,16 +1,18 @@
 import axios from "axios";
 import { host } from "./urls";
 
-const containsFiles = (data: any) => {
+const containsFiles = (data: unknown): boolean => {
     if (typeof data !== "object" || data === null) return false;
 
-    for (let key in data) {
-        if (data[key] instanceof File || data[key] instanceof Blob) {
+    for (const key in data as Record<string, unknown>) {
+        const value = (data as Record<string, unknown>)[key];
+        if (value instanceof File || value instanceof Blob) {
             return true;
         }
     }
     return false;
 };
+
 
 const API = axios.create({ baseURL: host });
 

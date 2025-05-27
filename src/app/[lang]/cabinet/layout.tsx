@@ -1,23 +1,15 @@
-import React from "react";
-import CabinetNavbar from "../components/cabinet/CabinetNavbar";
-import CabinetSideBar from "../components/cabinet/CabinetSideBar";
-import { CABINETSIDEBAR } from "@/assets/utils/sideBarData";
-import { AppProvider } from "@/context/AppContextType";
+import { AppProvider } from "@/context/AppContext";
+import CabinetLayout from "../components/cabinet/CabinetLayout";
 
 export const metadata = {
     title: "My Cabinet - Personal Management Panel",
-    description: "A convenient and interactive platform to manage messages, profile settings, quiz games, and user rankings.",
+    description: "Manage your profile, quizzes, and messages in one place.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <AppProvider>
-            <main id="main" className="p-4">
-                <CabinetSideBar sidebar={CABINETSIDEBAR} />
-                <CabinetNavbar />
-                {children}
-            </main>
+            <CabinetLayout>{children}</CabinetLayout>
         </AppProvider>
-
     );
 }

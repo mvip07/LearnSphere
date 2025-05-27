@@ -1,3 +1,5 @@
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @import "tailwindcss";
 
 @import "./input.css";
@@ -7,6 +9,7 @@
 @import "./container.css";
 @import "./animations.css";
 @import "./customColor.css";
+
 
 body {
     font-family: "Montserrat", serif;

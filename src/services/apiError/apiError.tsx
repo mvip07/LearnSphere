@@ -1,14 +1,5 @@
 import { showToast } from "@/assets/utils/toatify";
-
-export interface ApiErrorProps {
-    response?: {
-        data?: {
-            errors?: Record<string, string[] | string>
-            message?: string;
-            statusCode?: number;
-        },
-    }
-}
+import { ApiErrorProps } from "@/types/ApiError/apiError.t";
 
 export default function APIError(err: ApiErrorProps) {
     const validationErrors = err.response?.data;

@@ -1,17 +1,17 @@
 'use client';
-import Hero from "./components/cabinet/home/Hero";
-import About from "./components/cabinet/home/About";
-import Guide from "./components/cabinet/home/Guide";
-import Footer from "./components/cabinet/home/Footer";
-import Contact from "./components/cabinet/home/Contact";
-import Leaderboard from "./components/cabinet/home/Leaderboard";
-import QuizGallery from "./components/cabinet/home/QuizGallery";
-import QuizMasterCTA from "./components/cabinet/home/QuizMaster";
-import Achievements from "./components/cabinet/home/Achievements";
-import QuizOfTheDay from "./components/cabinet/home/QuizOfTheDay";
-import QuizCategories from "./components/cabinet/home/QuizCategories";
-import TestimonialSlider from "./components/cabinet/home/Testimonials";
-import ScrollProgressIndicator from "./components/cabinet/home/ScrollProgressIndicator";
+import Hero from "./components/home/Hero";
+import About from "./components/home/About";
+import Guide from "./components/home/Guide";
+import Footer from "./components/home/Footer";
+import Contact from "./components/home/Contact";
+import Leaderboard from "./components/home/Leaderboard";
+import QuizGallery from "./components/home/QuizGallery";
+import QuizMasterCTA from "./components/home/QuizMaster";
+import Achievements from "./components/home/Achievements";
+import QuizOfTheDay from "./components/home/QuizOfTheDay";
+import QuizCategories from "./components/home/QuizCategories";
+import TestimonialSlider from "./components/home/Testimonials";
+import ScrollProgressIndicator from "./components/home/ScrollProgressIndicator";
 
 export default function Home() {
     return (

@@ -1,31 +1,16 @@
-import { useState, useCallback } from "react";
+import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import { useState, useCallback } from "react";
 import { registerUser } from "../api/authApi";
 import { showToast } from "@/assets/utils/toatify";
-import APIError, { ApiErrorProps } from "@/services/apiError/apiError";
-
-interface RegisterState {
-    firstname: string;
-    lastname: string;
-    email: string;
-    username: string;
-    password: string;
-    confirmPassword: string;
-}
-
-interface ValidationErrors {
-    [key: string]: string[];
-}
-
-interface VisiblePassword {
-    visible: string;
-    active: boolean;
-}
+import APIError from "@/services/apiError/apiError";
+import { ApiErrorProps } from "@/types/ApiError/apiError.t";
+import { RegisterUser, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
 
 export const useRegister = () => {
     const router = useRouter();
 
-    const [register, setRegister] = useState<RegisterState>({ email: "", lastname: "", username: "", password: "", firstname: "", confirmPassword: "" });
+    const [register, setRegister] = useState<RegisterUser>({ email: "", lastname: "", username: "", password: "", firstname: "", confirmPassword: "" });
 
     const [validOrInvalid, setValidOrInvalid] = useState<ValidationErrors>({});
     const [loading, setLoading] = useState<boolean>(false);
@@ -51,11 +36,11 @@ export const useRegister = () => {
             const response = await registerUser(register);
             showToast("success", response.data.message);
             router.push(`/auth/verification/${register.email}`);
-        } catch (error: any) {
-            showToast("error", error?.response?.data.message || "Enter the information correctly");
+        } catch (error) {
+            const err = error as AxiosError<{ message?: string; errors?: { [key: string]: string[] } }>;
+            showToast("error", err?.response?.data?.message || "Enter the information correctly");
+            setValidOrInvalid(err?.response?.data?.errors || {});
             APIError(error as ApiErrorProps)
-            setValidOrInvalid(error?.res?.data?.errors || {});
-
         } finally {
             setLoading(false);
         }

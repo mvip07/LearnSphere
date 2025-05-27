@@ -1,8 +1,10 @@
+import { AxiosError } from "axios";
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect, useRef, useCallback, ChangeEvent, KeyboardEvent, ClipboardEvent } from "react";
 
 import { showToast } from "@/assets/utils/toatify";
-import APIError, { ApiErrorProps } from "@/services/apiError/apiError";
+import APIError from "@/services/apiError/apiError";
+import { ApiErrorProps } from "@/types/ApiError/apiError.t";
 import { sendVerificationCode, confirmVerificationCode } from "../api/authApi";
 import { useVerificationStore, initializeVerificationStore } from '@/stores/verificationStore';
 
@@ -24,8 +26,9 @@ export const useVerification = () => {
             try {
                 setLoading(true);
                 initializeVerificationStore(email);
-            } catch (error: any) {
-                showToast("warning", error.response?.data?.message || "Failed to load verification details");
+            } catch (error) {
+                const err = error as AxiosError<{ message?: string; }>;
+                showToast("warning", err.response?.data?.message || "Failed to load verification details");
             } finally {
                 setLoading(false);
             }
@@ -128,8 +131,9 @@ export const useVerification = () => {
                 }
                 resetTimer();
             }
-        } catch (error: any) {
-            showToast("error", error.response?.data?.message || "Verification failed!");
+        } catch (error) {
+            const err = error as AxiosError<{ message?: string; }>;
+            showToast("error", err?.response?.data?.message || "Verification failed!");
         } finally {
             setLoading(false);
         }
@@ -153,7 +157,7 @@ export const useVerification = () => {
                     router.push(res.data.url);
                 }
             }
-        } catch (error: any) {
+        } catch (error) {
             APIError(error as ApiErrorProps)
             setValues(Array(6).fill(""));
         } finally {

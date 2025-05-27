@@ -3,9 +3,8 @@
 import { useGoToNextPage } from "@/hooks/useGoToNextPage";
 import Loader from "../../components/Loader";
 import { useForgotPassword } from "@/features/auth/hooks/useForgotPassword";
-import React from "react";
 
-export default React.memo(function ForgotPassword() {
+export default function ForgotPassword() {
     const goTo = useGoToNextPage()
     const { handleInputChange, forgotPasswordSubmit, validOrInvalid, loading } = useForgotPassword();
     return (
@@ -43,4 +42,4 @@ export default React.memo(function ForgotPassword() {
             </div>
         </form>
     )
-})
+}

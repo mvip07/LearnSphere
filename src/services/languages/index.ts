@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { EN } from "./en";
 import { UZ } from "./uz";
 import { RU } from "./ru";

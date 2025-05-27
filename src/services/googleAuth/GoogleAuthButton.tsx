@@ -29,11 +29,11 @@ export default function GoogleAuthButton({ title }: { title: string }) {
                     }
                     setTimeout(() => goTo("cabinet"), 1500);
                 }
-            } catch (err: any) {
+            } catch (err: unknown) {
                 console.error("Backend login xatosi:", err);
             }
         },
-        onError: (err) => {
+        onError: () => {
             showToast("error", "Google login failed");
         },
     });

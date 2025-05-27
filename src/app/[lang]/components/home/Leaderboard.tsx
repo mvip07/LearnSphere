@@ -73,7 +73,7 @@ const Leaderboard = () => {
     };
 
     useEffect(() => {
-        setVisiblePlayers(state.players)
+        setVisiblePlayers(state.players);
         dispatch({ type: 'SET_INITIAL_VISIBLE', players: state.players });
 
         const interval = setInterval(() => {
@@ -81,7 +81,7 @@ const Leaderboard = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [state.players]);
 
     // useEffect(() => {
     //     setVisiblePlayers(reducer..slice(0, 5));
