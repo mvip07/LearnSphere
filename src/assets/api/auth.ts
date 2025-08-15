@@ -1,9 +1,9 @@
 export const getStoredUser = () => {
-    try {
-        const storedUser = localStorage.getItem("quizapp");
-        return storedUser ? JSON.parse(storedUser) : null;
-    } catch (error) {
-        console.error("LocalStorage xatosi:", error);
-        return null;
+    if (typeof window === "undefined") return null;
+
+    const storedUser = localStorage.getItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
+    if (storedUser) {
+        return JSON.parse(storedUser)
     }
+    return window.location.href = "/auth/login"
 };

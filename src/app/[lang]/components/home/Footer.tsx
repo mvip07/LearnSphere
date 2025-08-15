@@ -153,7 +153,7 @@ const Footer = () => {
                 </div>
 
                 <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                    © {new Date().getFullYear()} Quiz Universe. All rights reserved.
+                    © {new Date().getFullYear()} Quiz Universe. All rights reserved. Created By Ozodov Mirabzal
                 </div>
             </div>
         </footer>

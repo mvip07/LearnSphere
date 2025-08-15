@@ -19,7 +19,7 @@
 #header {
     top: 0;
     left: 0;
-    /* z-index: 101; */
+    z-index: 101;
     width: 300px;
     height: 100dvh;
     position: fixed;
@@ -63,4 +63,5 @@
 
 #header.active {
     left: 0;
+    z-index: 1001
 }

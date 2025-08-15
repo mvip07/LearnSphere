@@ -17,12 +17,19 @@ const containsFiles = (data: unknown): boolean => {
 const API = axios.create({ baseURL: host });
 
 API.interceptors.request.use((config) => {
-    const token: string = JSON.parse(localStorage.getItem("quizapp") || "null")?.token || "";
+    let token: string = ""
+
+    if (typeof window !== "undefined") {
+        const stored = localStorage.getItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
+        token = stored ? JSON.parse(stored)?.token || "" : "";
+    }
 
     if (token) config.headers.Authorization = `Bearer ${token}`;
 
     if (containsFiles(config.data)) config.headers["Content-Type"] = "multipart/form-data";
     else config.headers["Content-Type"] = "application/json";
+
+    config.headers["Frontend-Path"] = window.location.pathname
 
     return config;
 }, (error) => Promise.reject(error));

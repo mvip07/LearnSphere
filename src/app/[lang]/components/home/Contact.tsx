@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useRef, useEffect } from 'react';
 
 const Contact = () => {
@@ -125,7 +124,6 @@ const Contact = () => {
                                         placeholder="Your Name"
                                         className="w-full px-6 py-4 bg-white rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300 shadow-sm hover:shadow-md outline-0"
                                     />
-                                    <span className="absolute left-0 top-0 h-full w-1 bg-blue-500 opacity-0 transition-all duration-300 input-focus-indicator"></span>
                                 </div>
 
                                 <div className="relative">
@@ -138,7 +136,6 @@ const Contact = () => {
                                         placeholder="Your Email"
                                         className="w-full px-6 py-4 bg-white rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300 shadow-sm hover:shadow-md outline-0"
                                     />
-                                    <span className="absolute left-0 top-0 h-full w-1 bg-blue-500 opacity-0 transition-all duration-300 input-focus-indicator"></span>
                                 </div>
 
                                 <div className="relative">
@@ -151,10 +148,9 @@ const Contact = () => {
                                         placeholder="Your Message"
                                         className="w-full px-6 py-4 bg-white rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300 shadow-sm hover:shadow-md outline-0"
                                     ></textarea>
-                                    <span className="absolute left-0 top-0 h-full w-1 bg-blue-500 opacity-0 transition-all duration-300 input-focus-indicator"></span>
                                 </div>
 
-                                <button type="submit" className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                <button type="submit" className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer">
                                     Send Message
                                 </button>
                             </>

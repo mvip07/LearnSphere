@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const QuizCategories = () => {
@@ -80,9 +81,9 @@ const QuizCategories = () => {
                                 </div>
 
                                 <div className={`absolute inset-0 ${category.color} bg-opacity-90 rounded-xl p-6 flex flex-col justify-center items-center backface-hidden transition-all duration-500 transform rotate-y-180 group-hover:rotate-y-0 shadow-md`}>
-                                    <button className="px-6 py-3 bg-white text-gray-900 rounded-full font-bold hover:bg-gray-100 transition-colors">
+                                    <Link href="/cabinet/quiz" className="px-6 py-3 bg-white text-gray-900 rounded-full font-bold hover:bg-gray-100 transition-colors cursor-pointer">
                                         Start Quiz
-                                    </button>
+                                    </Link>
                                     <p className="text-white mt-4 text-center">Explore {category.count} questions in this category</p>
                                 </div>
                             </div>

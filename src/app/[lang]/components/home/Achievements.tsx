@@ -125,16 +125,16 @@ const Achievements = () => {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    <button onClick={() => setFilter('all')} className={`px-4 py-2 rounded-full transition-all ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setFilter('all')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${filter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         All Badges
                     </button>
-                    <button onClick={() => setFilter('daily')} className={`px-4 py-2 rounded-full transition-all ${filter === 'daily' ? 'bg-green-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setFilter('daily')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${filter === 'daily' ? 'bg-green-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         Daily
                     </button>
-                    <button onClick={() => setFilter('weekly')} className={`px-4 py-2 rounded-full transition-all ${filter === 'weekly' ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
+                    <button onClick={() => setFilter('weekly')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${filter === 'weekly' ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
                         Weekly
                     </button>
-                    <button onClick={() => setFilter('challenge')} className={`px-4 py-2 rounded-full transition-all ${filter === 'challenge' ? 'bg-yellow-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setFilter('challenge')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${filter === 'challenge' ? 'bg-yellow-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         Challenges
                     </button>
                 </div>
@@ -145,7 +145,7 @@ const Achievements = () => {
                             key={badge.id}
                             data-badge-id={badge.id}
                             style={{ animationDelay: `${(badge.id % 4) * 0.1}s` }}
-                            className={`badge-item relative ${visibleBadges.includes(badge.id) ? 'animate-scale-in' : 'opacity-0'}`}
+                            className={`badge-item relative cursor-pointer ${visibleBadges.includes(badge.id) ? 'animate-scale-in' : 'opacity-0'}`}
                         >
                             <div className={`relative w-full h-64 perspective-1000 group ${badge.unlocked ? '' : 'opacity-60'}`}>
                                 <div className={`relative w-full h-full transform-style-preserve-3d transition-transform duration-500 group-hover:rotate-y-180`}>

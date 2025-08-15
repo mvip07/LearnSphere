@@ -1,11 +1,11 @@
-import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { registerUser } from "../api/authApi";
 import { showToast } from "@/assets/utils/toatify";
-import APIError from "@/services/apiError/apiError";
-import { ApiErrorProps } from "@/types/ApiError/apiError.t";
-import { RegisterUser, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
+import { ApiErrorProps } from "@/types/apiError.t";
+import { ValidationErrors } from "@/types/general.t";
+import { RegisterUser, VisiblePassword } from "@/types/auth.t";
+import { handleApiError } from "@/services/handleApiError/handleApiError";
 
 export const useRegister = () => {
     const router = useRouter();
@@ -37,10 +37,7 @@ export const useRegister = () => {
             showToast("success", response.data.message);
             router.push(`/auth/verification/${register.email}`);
         } catch (error) {
-            const err = error as AxiosError<{ message?: string; errors?: { [key: string]: string[] } }>;
-            showToast("error", err?.response?.data?.message || "Enter the information correctly");
-            setValidOrInvalid(err?.response?.data?.errors || {});
-            APIError(error as ApiErrorProps)
+            handleApiError(error as ApiErrorProps, setValidOrInvalid)
         } finally {
             setLoading(false);
         }

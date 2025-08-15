@@ -9,9 +9,7 @@ export const useActive = () => {
         if (url === "/cabinet" || url === "/") {
             return cleanPath === "/cabinet" || cleanPath === "/";
         }
-
-        console.log("cleanPath", cleanPath.startsWith(url))
-        return cleanPath.startsWith(url);
+        return cleanPath.endsWith(url);
     };
 
     return { isActive }

@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
     }
 
     const response = NextResponse.next();
-    response.cookies.set('lang', locale, { path: '/', maxAge: 60 * 60 * 24 * 30 }); // 30 kunlik cookie
+    response.cookies.set('lang', locale, { path: '/', maxAge: 60 * 60 * 24 * 30 });
     return response;
 }
 

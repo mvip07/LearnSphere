@@ -1,24 +1,30 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-
-import { FaClock } from "react-icons/fa6";
-
+import { FaClock, FaXmark } from "react-icons/fa6";
 import Link from "next/link";
 import { useActive } from "./useActive";
-
 import useTranslation from "@/services/languages";
-import { SideBarProps } from "@/types/Sidebar/sidebar.t";
+import { SideBarProps } from "@/types/component.t";
+import { useAppContext } from "@/context/AppContext";
+import { FaBars } from "react-icons/fa";
 
 const CabinetSideBar = ({ sidebar }: { sidebar: SideBarProps[] }) => {
     const t = useTranslation();
     const { isActive } = useActive()
-
-    return t ? (
-        <header id="header" className="bg-[var(--dark)] px-4 py-2 p-lg-4 overflow-y-auto design-scrollbar">
+    const { isSidebarOpen, setIsSidebarOpen } = useAppContext()
+    return (
+        <header id="header" className={`bg-[var(--dark)] relative px-4 py-2 p-lg-4 overflow-y-auto scroll-bar-none ${isSidebarOpen ? "active" : ""}`}>
             <Link href="/" className="flex items-center justify-between mt-4">
                 <Image className="mx-auto" src="/images/orginal-logo.png" alt="LearnSphere Logo" width={150} height={150} />
             </Link>
+
+            <div onClick={() => setIsSidebarOpen((prev) => !prev)} className="absolute top-5 end-5 w-[34px] h-[34px] rounded-full bg-[var(--whiLg)] dark:bg-[var(--darkBorderCl)] flex items-center justify-center block sm:hidden cursor-pointer">
+                {
+                    isSidebarOpen ? <FaXmark className="size-5 text-[var(--textCl)] dark:text-[var(--darkTextCl)]" />
+                        : <FaBars className="size-5 text-[var(--textCl)] dark:text-[var(--darkTextCl)]" />
+                }
+            </div>
             <nav className="mt-2">
                 <div className="list-group">
                     {sidebar.map((item, index) => (
@@ -43,7 +49,7 @@ const CabinetSideBar = ({ sidebar }: { sidebar: SideBarProps[] }) => {
                 </div>
             </nav>
         </header>
-    ) : null;
+    );
 };
 
 export default React.memo(CabinetSideBar);

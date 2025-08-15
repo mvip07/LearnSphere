@@ -153,19 +153,19 @@ const QuizGallery = () => {
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-3 mb-12">
-                    <button onClick={() => setActiveFilter('all')} className={`px-4 py-2 rounded-full transition-all ${activeFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setActiveFilter('all')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${activeFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         All Quizzes
                     </button>
-                    <button onClick={() => setActiveFilter('science')} className={`px-4 py-2 rounded-full transition-all ${activeFilter === 'science' ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
+                    <button onClick={() => setActiveFilter('science')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${activeFilter === 'science' ? 'bg-purple-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
                         Science
                     </button>
-                    <button onClick={() => setActiveFilter('geography')} className={`px-4 py-2 rounded-full transition-all ${activeFilter === 'geography' ? 'bg-green-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setActiveFilter('geography')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${activeFilter === 'geography' ? 'bg-green-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         Geography
                     </button>
-                    <button onClick={() => setActiveFilter('easy')} className={`px-4 py-2 rounded-full transition-all ${activeFilter === 'easy' ? 'bg-blue-400 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
+                    <button onClick={() => setActiveFilter('easy')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${activeFilter === 'easy' ? 'bg-blue-400 text-white' : 'bg-white text-gray-700 shadow-sm'}`} >
                         Easy
                     </button>
-                    <button onClick={() => setActiveFilter('hard')} className={`px-4 py-2 rounded-full transition-all ${activeFilter === 'hard' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
+                    <button onClick={() => setActiveFilter('hard')} className={`px-4 py-2 rounded-full transition-all cursor-pointer ${activeFilter === 'hard' ? 'bg-red-600 text-white' : 'bg-white text-gray-700 shadow-sm'}`}>
                         Hard
                     </button>
                 </div>
@@ -206,7 +206,7 @@ const QuizGallery = () => {
                                                 <span
                                                     key={i}
                                                     style={{ animationDelay: `${i * 0.1 + 0.3}s` }}
-                                                    className="inline-block px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-800 rounded-full transition-all duration-300 hover:bg-blue-100 hover:text-blue-800 animate-tag-fadeIn"
+                                                    className="inline-block px-3 py-1 text-xs font-semibold bg-gray-100 text-gray-800 rounded-full transition-all duration-300 hover:bg-blue-100 hover:text-blue-800 animate-tag-fadeIn cursor-pointer"
                                                 >
                                                     {tag}
                                                 </span>
@@ -214,7 +214,7 @@ const QuizGallery = () => {
                                         </div>
                                     </div>
 
-                                    <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105">
+                                    <button className="w-full py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 cursor-pointer">
                                         Start Quiz
                                     </button>
                                 </div>

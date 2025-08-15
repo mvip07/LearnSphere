@@ -1,9 +1,8 @@
 "use client";
+import Link from "next/link";
+import { UserDropdownProps } from "@/types/component.t";
 import { FaAngleUp, FaAngleDown, FaRegUser } from "react-icons/fa";
 import { FaAddressBook, FaArrowRightFromBracket, FaGear } from "react-icons/fa6";
-
-import { UserDropdownProps } from "@/types/Navbar/navbar.t";
-import Link from "next/link";
 
 export const UserDropdown = ({ user, open2, logout, setOpen2 }: UserDropdownProps) => (
     <div className="relative">
@@ -15,7 +14,7 @@ export const UserDropdown = ({ user, open2, logout, setOpen2 }: UserDropdownProp
             )}
         </div>
         {open2 && (
-            <div className="absolute z-100 top-[38px] end-0 w-max mt-2 bg-[var(--whi)] dark:bg-[var(--darkBoxBg)] border border-[var(--whiLg)] dark:border-[var(--darkBorderCl)] rounded-sm box-shadow">
+            <div className="absolute z-100 top-[41px] lg:top-[46px] end-0 w-max bg-[var(--whi)] dark:bg-[var(--darkBoxBg)] border border-[var(--whiLg)] dark:border-[var(--darkBorderCl)] rounded-sm box-shadow">
                 <ul className="px-4 py-2">
                     <li className="cursor-pointer flex items-center gap-4 text-[var(--textCl)] dark:text-[var(--darkTextCl)] p-3 capitalize leading-normal font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)]">
                         <FaRegUser className="size-5" />
@@ -31,7 +30,7 @@ export const UserDropdown = ({ user, open2, logout, setOpen2 }: UserDropdownProp
                     </li>
                     <li className="cursor-pointer flex items-center gap-4 text-[var(--textCl)] dark:text-[var(--darkTextCl)] p-3 capitalize leading-normal font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)]">
                         <FaGear className="size-5" />
-                        <Link href="/cabinet/profile" className="text-[16px]">
+                        <Link href="/profile/edit" className="text-[16px]">
                             Account Settings
                         </Link>
                     </li>

@@ -1,10 +1,9 @@
 import { AxiosError } from "axios";
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect, useRef, useCallback, ChangeEvent, KeyboardEvent, ClipboardEvent } from "react";
-
 import { showToast } from "@/assets/utils/toatify";
-import APIError from "@/services/apiError/apiError";
-import { ApiErrorProps } from "@/types/ApiError/apiError.t";
+import { ApiErrorProps } from "@/types/apiError.t";
+import { handleApiError } from "@/services/handleApiError/handleApiError";
 import { sendVerificationCode, confirmVerificationCode } from "../api/authApi";
 import { useVerificationStore, initializeVerificationStore } from '@/stores/verificationStore';
 
@@ -150,7 +149,7 @@ export const useVerification = () => {
 
                 if (res?.data?.redirect && res?.data?.url && res?.data?.status) {
                     if (res.data.user) {
-                        localStorage.setItem("quizapp", JSON.stringify(res?.data?.user));
+                        localStorage.setItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!, JSON.stringify(res?.data?.user));
                     }
                     const toastStatus: "success" | "warning" | "error" = ["success", "warning", "error"].includes(res?.data?.status) ? res?.data?.status : "success";
                     showToast(toastStatus as "warning" | "success" | "error", res.data.message || "Please verify your email");
@@ -158,8 +157,8 @@ export const useVerification = () => {
                 }
             }
         } catch (error) {
-            APIError(error as ApiErrorProps)
             setValues(Array(6).fill(""));
+            handleApiError(error as ApiErrorProps)
         } finally {
             setLoading(false);
         }

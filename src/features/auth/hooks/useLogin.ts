@@ -1,12 +1,12 @@
-import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { loginRequest } from "../api/authApi";
 import { showToast } from "@/assets/utils/toatify";
-import APIError from "@/services/apiError/apiError";
-import { ApiErrorProps } from "@/types/ApiError/apiError.t";
+import { ApiErrorProps } from "@/types/apiError.t";
+import { ValidationErrors } from "@/types/general.t";
+import { LoginUser, VisiblePassword } from "@/types/auth.t";
 import { useVerificationStore } from '@/stores/verificationStore';
-import { LoginUser, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
+import { handleApiError } from "@/services/handleApiError/handleApiError";
 
 export const useLogin = () => {
     const router = useRouter();
@@ -39,7 +39,7 @@ export const useLogin = () => {
                     setVerificationData(login.email, expiresAtTime);
                 }
                 if (res.data.user) {
-                    localStorage.setItem("quizapp", JSON.stringify(res?.data?.user));
+                    localStorage.setItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!, JSON.stringify(res?.data?.user));
                 }
                 const toastStatus: "success" | "warning" | "error" = ["success", "warning", "error"].includes(res?.data?.status) ? res?.data?.status : "success";
                 showToast(toastStatus, res.data.message || "Login Successfully");
@@ -47,9 +47,7 @@ export const useLogin = () => {
             }
 
         } catch (error) {
-            const err = error as AxiosError<{ errors?: { [key: string]: string[] } }>;
-            setValidOrInvalid(err?.response?.data?.errors || {});
-            APIError(error as ApiErrorProps)
+            handleApiError(error as ApiErrorProps, setValidOrInvalid)
         } finally {
             setLoading(false);
         }

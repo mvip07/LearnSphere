@@ -107,8 +107,8 @@ const QuizMaster = () => {
                     </div>
 
                     <div className={`w-full lg:w-1/2 space-y-8 transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white">
-                            <span className="inline-block min-h-[1.5em] border-r-2 border-white animate-blink">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white">
+                            <span className="inline-block border-r-2 border-white animate-blink">
                                 {typedText}
                             </span>
                         </h2>
@@ -117,7 +117,7 @@ const QuizMaster = () => {
                             Join thousands of educators and content creators who are transforming learning with interactive quizzes.
                         </p>
 
-                        <button className={`relative px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-xl shadow-lg overflow-hidden transition-all duration-300 ${isVisible ? 'animate-bounce' : 'opacity-0'} hover:scale-105 hover:shadow-xl`} >
+                        <button className={`relative px-8 py-4 bg-white text-blue-600 rounded-lg font-bold text-xl shadow-lg overflow-hidden transition-all duration-300 ${isVisible ? 'animate-bounce' : 'opacity-0'} hover:scale-105 hover:shadow-xl cursor-pointer`} >
                             <span className="relative z-10">Start Creating Free</span>
                             <span className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity"></span>
                             <span className="absolute -inset-2 bg-white/30 rounded-lg blur-md opacity-0 hover:opacity-100 transition-opacity"></span>

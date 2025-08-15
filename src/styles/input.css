@@ -3,8 +3,6 @@ textarea:focus~.input-focus-indicator {
     opacity: 1;
 }
 
-
-
 .input {
     font-size: 16px;
     outline-width: 0;
@@ -18,7 +16,7 @@ textarea:focus~.input-focus-indicator {
     box-shadow: 0px 1px 2px 0px #EFE8E84D inset;
 }
 
-.dark .input {
+[data-theme="dark"] .input {
     box-shadow: none;
     color: var(--darkTextCl);
     background: var(--darkInput);
@@ -26,7 +24,7 @@ textarea:focus~.input-focus-indicator {
 }
 
 .input:focus,
-.dark .input:focus {
+[data-theme="dark"] .input:focus {
     border: 1px solid var(--textCl);
 }
 
@@ -42,18 +40,18 @@ textarea:focus~.input-focus-indicator {
     display: block;
 }
 
-.dark .input::placeholder {
+[data-theme="dark"] .input::placeholder {
     color: var(--darkPlaceholder);
 }
 
 .input.invalid {
-    color: #FC4C4F;
-    border: 1px solid #FC4C4F;
+    color: var(--invalidInput);
+    border: 1px solid var(--invalidInput);
 }
 
 .input.valid {
-    color: #73FFF2;
-    border: 1px solid #73FFF2
+    color: var(--validInput);
+    border: 1px solid var(--validInput)
 }
 
 .input[type="number"]::-webkit-inner-spin-button,

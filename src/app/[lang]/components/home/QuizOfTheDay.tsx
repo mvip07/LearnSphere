@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 type Dot = {
@@ -122,14 +123,8 @@ const QuizOfTheDay = () => {
                     onMouseEnter={() => setIsHovered(true)}
                     className="w-64 h-64 sm:w-80 sm:h-80 perspective-1000 cursor-pointer"
                 >
-                    <div
-                        style={{ transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, }}
-                        className="relative w-full h-full transform-style-preserve-3d transition-transform duration-700 ease-out"
-                    >
-                        <div
-                            style={{ transform: 'translateZ(100px)' }}
-                            className={`absolute inset-0 ${quizFaces[0].bg} rounded-lg shadow-xl flex flex-col items-center justify-center p-6 backface-hidden`}
-                        >
+                    <div style={{ transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`, }} className="relative w-full h-full transform-style-preserve-3d transition-transform duration-700 ease-out">
+                        <div style={{ transform: 'translateZ(100px)' }} className={`absolute inset-0 ${quizFaces[0].bg} rounded-lg shadow-xl flex flex-col items-center justify-center p-6 backface-hidden`}>
                             <span className="text-4xl mb-4">{quizFaces[0].icon}</span>
                             <h3 className="text-2xl font-bold text-white text-center">{quizFaces[0].title}</h3>
                             <p className="text-xl text-white mt-2">{quizFaces[0].content}</p>
@@ -188,17 +183,17 @@ const QuizOfTheDay = () => {
                         Test your knowledge about space exploration with our advanced quiz featuring 20 questions in just 15 minutes.
                     </p>
 
-                    <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg text-white font-bold text-xl overflow-hidden group">
-                        <span className="relative z-10">Play Now</span>
+                    <button className="relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg text-white font-bold text-xl overflow-hidden group cursor-pointer">
+                        <Link href="/cabinet/quiz" className="relative z-10">Play Now</Link>
                         <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         <span className="absolute inset-0 bg-white opacity-10 group-hover:opacity-0 transition-opacity duration-300"></span>
                         <span className="absolute -inset-2 bg-blue-400 blur-md opacity-0 group-hover:opacity-70 transition-opacity duration-500"></span>
                     </button>
 
                     <div className="mt-6 flex flex-wrap gap-3">
-                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white">🚀 Space</span>
-                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white">⏱️ 15 min</span>
-                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white">🧠 Advanced</span>
+                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white cursor-pointer">🚀 Space</span>
+                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white cursor-pointer">⏱️ 15 min</span>
+                        <span className="px-4 py-2 bg-gray-800 bg-opacity-50 rounded-full text-white cursor-pointer">🧠 Advanced</span>
                     </div>
                 </div>
             </div>

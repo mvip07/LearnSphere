@@ -1,0 +1,227 @@
+import React from "react";
+import { Filter } from "./filter.t";
+import { User, CreateUser } from "./auth.t";
+import { ValidationErrors } from "./general.t";
+import { Permission, CreatePermission, Role, CreateRole, EditPermission } from "./role.t";
+import { Category, Level, Topic, Question, CreateQuestion, CreateCategory, CreateLevel, CreateTopic } from "./quiz.t";
+
+export interface UseCategoriesReturn {
+    page: number;
+    limit: number;
+    search: string;
+    categories: Category[];
+    checked: string[];
+    isLoading: boolean;
+    editModal: boolean;
+    totalPages: number;
+    createModal: boolean;
+    deleteModal: boolean;
+    editCategory: Category | null;
+    isLoadingPage: boolean;
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setPage: (page: number) => void;
+    setLimit: (limit: number) => void;
+    setSearch: (search: string) => void;
+    setEditCategory: (role: Category | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleEdit: (body: CreateCategory) => Promise<boolean>;
+    handleCreate: (body: CreateCategory) => Promise<boolean>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: number | string) => void;
+}
+
+export interface UseLevelReturn {
+    page: number;
+    limit: number;
+    levels: Level[];
+    search: string;
+    checked: string[];
+    isLoading: boolean;
+    editModal: boolean;
+    totalPages: number;
+    createModal: boolean;
+    deleteModal: boolean;
+    editLevel: Level | null;
+    isLoadingPage: boolean;
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setEditLevel: (level: Level | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleEdit: (body: CreateLevel) => Promise<boolean>;
+    handleCreate: (body: CreateLevel) => Promise<boolean>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: number | string) => void;
+}
+
+export interface UseQuestionsReturn {
+    page: number;
+    limit: number;
+    search: string;
+    filter: Filter;
+    topics: Topic[];
+    levels: Level[];
+    questions: Question[];
+    categories: Category[];
+    isLoading: boolean;
+    isLoadingPage: boolean;
+    totalPages: number;
+    createModal: boolean;
+    editModal: boolean;
+    deleteModal: boolean;
+    editQuestion: Question | null;
+    checked: string[];
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    confirmDelete: () => void;
+    setValidOrInvalid: (errors: ValidationErrors) => void;
+    setEditQuestion: (question: Question | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleCreate: (body: CreateQuestion) => Promise<boolean>;
+    handleEdit: (body: CreateQuestion) => Promise<boolean>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    updateFilterParam: (key: keyof Filter, value: string | string[]) => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: string | number) => void;
+    setFilter: (value: Filter) => void;
+    setPage: (value: number) => void;
+    setLimit: (value: number) => void;
+    setSearch: (value: string) => void;
+}
+
+export interface UsePermissionsReturn {
+    page: number;
+    limit: number;
+    permissions: Permission[];
+    search: string;
+    checked: string[];
+    isLoading: boolean;
+    editModal: boolean;
+    totalPages: number;
+    createModal: boolean;
+    deleteModal: boolean;
+    editPermission: Permission | null;
+    isLoadingPage: boolean;
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setEditPermission: (permission: Permission | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleEdit: (body: CreatePermission) => Promise<void>;
+    handleCreate: (body: CreatePermission) => Promise<void>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: number | string) => void;
+}
+
+export interface UseRolesReturn {
+    page: number;
+    limit: number;
+    roles: Role[];
+    search: string;
+    checked: string[];
+    isLoading: boolean;
+    editModal: boolean;
+    totalPages: number;
+    createModal: boolean;
+    deleteModal: boolean;
+    editRole: Role | null;
+    isLoadingPage: boolean;
+    permissions: Permission[];
+    permissionChecked: string[];
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setPermissionChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setPage: (page: number) => void;
+    setLimit: (limit: number) => void;
+    setSearch: (search: string) => void;
+    setEditRole: (role: Role | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    fetchRoles: () => Promise<void>;
+    handleEdit: (body: CreateRole) => Promise<boolean>;
+    handleCreate: (body: CreateRole) => Promise<boolean>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    handlePermissionEdit: (body: EditPermission) => Promise<void>;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: number | string) => void;
+}
+
+export interface UseUsersReturn {
+    page: number;
+    limit: number;
+    search: string;
+    filter: Filter;
+    users: User[];
+    roles: Role[];
+    isLoading: boolean;
+    isLoadingPage: boolean;
+    totalPages: number;
+    createModal: boolean;
+    editModal: boolean;
+    deleteModal: boolean;
+    editUser: User | null;
+    checked: string[];
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setValidOrInvalid: React.Dispatch<React.SetStateAction<ValidationErrors>>;
+    setPage: (page: number) => void;
+    setLimit: (limit: number) => void;
+    setSearch: (search: string) => void;
+    setFilter: (filter: Filter) => void;
+    setEditUser: (user: User | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleCreate: (body: CreateUser) => Promise<boolean>;
+    handleEdit: (body: CreateUser) => Promise<boolean>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    updateFilterParam: (key: keyof Filter, value: string) => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: string | number) => void;
+}
+
+export interface UseTopicsReturn {
+    page: number;
+    limit: number;
+    topics: Topic[];
+    categories: Category[];
+    search: string;
+    filter: Filter;
+    checked: string[];
+    isLoading: boolean;
+    editModal: boolean;
+    totalPages: number;
+    createModal: boolean;
+    deleteModal: boolean;
+    editTopic: Topic | null;
+    isLoadingPage: boolean;
+    validOrInvalid: ValidationErrors;
+    setChecked: React.Dispatch<React.SetStateAction<string[]>>;
+    setEditTopic: (topic: Topic | null) => void;
+    setEditModal: (open: boolean) => void;
+    setCreateModal: (open: boolean) => void;
+    setDeleteModal: (open: boolean) => void;
+    handleEdit: (body: CreateTopic) => Promise<boolean>;
+    handleCreate: (body: CreateTopic) => Promise<boolean>;
+    confirmDelete: () => Promise<void>;
+    handleNext: () => void;
+    handlePrev: () => void;
+    updateFilterParam: (key: keyof Filter, value: string) => void;
+    changeLimitOrPageOrSearch: (type: "page" | "limit" | "search", value: number | string) => void;
+}

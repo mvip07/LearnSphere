@@ -136,7 +136,7 @@ const About = () => {
 
                 <div className="block space-y-6 mb-12">
                     {milestones.map((milestone, index) => (
-                        <div key={index} className={`${milestone.color} w-full sm:w-96 mx-auto rounded-xl shadow-2xl p-6 h-48 flex flex-col justify-center items-center text-center text-white transition-all duration-300 ${index === activeCard ? 'scale-105 opacity-100' : 'scale-95 opacity-70'}`}>
+                        <div key={index} className={`${milestone.color} w-full sm:w-96 mx-auto rounded-xl shadow-2xl p-6 h-48 flex flex-col justify-center items-center text-center text-white transition-all duration-300 cursor-pointer ${index === activeCard ? 'scale-105 opacity-100' : 'scale-95 opacity-70'}`}>
                             <div className="text-4xl mb-3">{milestone.emoji}</div>
                             <span className="text-xs font-semibold text-white/80 mb-1">{milestone.year}</span>
                             <h3 className="text-xl font-bold mb-1">{milestone.title}</h3>
@@ -155,7 +155,7 @@ const About = () => {
                             key={index}
                             onClick={() => setActiveCard(index)}
                             aria-label={`Go to milestone ${index + 1}`}
-                            className={`w-3 h-3 rounded-full transition-all ${index === activeCard ? 'bg-white w-6' : 'bg-white/30'}`}
+                            className={`w-3 h-3 rounded-full transition-all cursor-pointer ${index === activeCard ? 'bg-white w-6' : 'bg-white/30'}`}
                         />
                     ))}
                 </div>

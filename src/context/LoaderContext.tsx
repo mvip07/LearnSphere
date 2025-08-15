@@ -1,10 +1,9 @@
-// context/LoaderContext.tsx
 "use client";
 
 import { AnimatePresence } from "framer-motion";
 import { createContext, useContext, useState } from "react";
-import { LoaderContextType } from "@/types/Cabinet/cabinet.t";
-import { SphereLoader } from "../app/[lang]/components/LoaderContainer";
+import { SphereLoader } from "@/app/[lang]/components/LoaderContainer";
+import { LoaderContextType } from "@/types/state.t";
 
 const LoaderContext = createContext<LoaderContextType | undefined>(undefined);
 

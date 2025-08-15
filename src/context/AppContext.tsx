@@ -1,108 +1,110 @@
 "use client";
-
-import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
 import socketIOClient from "socket.io-client";
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, useRef } from "react";
 import API from "@/assets/api";
 import { useLoader } from "./LoaderContext";
-import { CabinetContextType, SocketContextType, UserDto, UserFollowData } from "@/types/Cabinet/cabinet.t";
+import { UserDto } from "@/types/auth.t";
+import { ApiErrorProps } from "@/types/apiError.t";
+import { CabinetContextType, SocketContextType, UserFollowData } from "@/types/state.t";
+import { useGoToNextPage } from "@/hooks/useGoToNextPage";
+import { handleApiError } from "@/services/handleApiError/handleApiError";
 
-
+const DEFAULT_USER = {
+    user: null,
+    follower: [],
+    following: [],
+    answers: [],
+    topics: [],
+    levels: [],
+    categories: [],
+    results: {
+        total: 0,
+        correct: 0,
+        inCorrect: 0,
+        totalCoins: 0,
+        earnedCoins: 0,
+    },
+}
 
 const UserContext = createContext<CabinetContextType | null>(null);
 const SocketContext = createContext<SocketContextType | null>(null);
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-    const router = useRouter();
+    const goTo = useGoToNextPage()
     const { showLoader, hideLoader } = useLoader();
-
     const [userId, setUserId] = useState<string | null>(null);
-    const [userData, setUserData] = useState<UserFollowData>({
-        user: null,
-        follower: [],
-        following: [],
-        answers: [],
-        categories: [],
-    });
-
+    const [userData, setUserData] = useState<UserFollowData>(DEFAULT_USER);
     const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
-    const [isConnected, setIsConnected] = useState<boolean>(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isConnected, setIsConnected] = useState(false);
+
+    const fetchRef = useRef(false);
 
     const socket = useMemo(() => {
         if (typeof window === "undefined") return null;
-        return socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:8000", {
+        return socketIOClient(process.env.NEXT_PUBLIC_SOCKET_URL, {
             autoConnect: false,
         });
     }, []);
 
-    const goToLogin = useCallback(() => {
-        router.push("/auth/login");
-    }, [router]);
-
     useEffect(() => {
-        const localUser = localStorage.getItem("quizapp");
-        if (!localUser || localUser === "undefined") {
-            goToLogin();
-            return;
-        }
+        if (typeof window === "undefined") return;
 
-        try {
-            const parsed: UserDto = JSON.parse(localUser);
-            if (parsed?.userId) {
-                setUserId(parsed.userId);
-            } else {
-                localStorage.removeItem("quizapp");
-                goToLogin();
+        const checkAuth = () => {
+            const localUser = localStorage.getItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
+            if (!localUser || localUser === "undefined") {
+                return null;
             }
-        } catch {
-            localStorage.removeItem("quizapp");
-            goToLogin();
-        }
-    }, [goToLogin]);
+
+            try {
+                const parsed: UserDto = JSON.parse(localUser);
+                return parsed?.userId ? parsed.userId : null;
+            } catch {
+                localStorage.removeItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
+                return null;
+            }
+        };
+
+        const id = checkAuth();
+        if (id) setUserId(id);
+    }, []);
 
     const fetchUser = useCallback(async () => {
         if (!userId) return;
+
         showLoader();
+
         try {
             const res = await API.get(`cabinet/${userId}`);
             const newData = res.data;
+
             setUserData((prev) => {
                 if (JSON.stringify(prev) !== JSON.stringify(newData)) return newData;
                 return prev;
             });
+
         } catch (error) {
-            const err = error as AxiosError;
-            if (err?.response?.status === 401) {
-                localStorage.removeItem("quizapp");
-                goToLogin();
-            }
+            handleApiError(error as ApiErrorProps);
         } finally {
             hideLoader();
         }
-    }, [userId, goToLogin, showLoader, hideLoader]);
+    }, [userId, showLoader, hideLoader]);
 
     useEffect(() => {
-        if (userId) fetchUser();
-    }, [userId, fetchUser]);
+        if (!userId || fetchRef.current) return;
+        fetchRef.current = true;
+        fetchUser();
+    }, [fetchUser, userId]);
 
     const logout = useCallback(() => {
-        localStorage.removeItem("quizapp");
+        localStorage.removeItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
         setUserId(null);
-        setUserData({
-            user: null,
-            follower: [],
-            following: [],
-            answers: [],
-            categories: [],
-        });
-        goToLogin();
-    }, [goToLogin]);
-
+        setUserData(DEFAULT_USER);
+        goTo("/auth/login")
+    }, [goTo]);
 
     const emitStatus = useCallback((status: "online" | "offline") => {
-        if (socket && userId) {
+        if (socket?.connected && userId) {
             socket.emit("status", { user: userId, status });
         }
     }, [socket, userId]);
@@ -110,26 +112,38 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         if (!socket || !userId) return;
 
-        socket.connect();
-        setIsConnected(true);
-
-        socket.on("connect", () => {
+        const handleConnect = () => {
+            setIsConnected(true);
             emitStatus("online");
             socket.emit("joinRoom", userId);
-        });
+        };
 
-        socket.on("usersOnline", (users: string[]) => {
+        const handleUsersOnline = (users: string[]) => {
             const filtered = users.filter((id) => id !== userId);
             setOnlineUsers(filtered);
-        });
+        };
 
+        socket.on("connect", handleConnect);
+        socket.on("usersOnline", handleUsersOnline);
         socket.on("connect_error", () => setIsConnected(false));
 
-        window.addEventListener("beforeunload", () => emitStatus("offline"));
+        if (!socket.connected) {
+            socket.connect();
+        }
+
+        const beforeUnloadHandler = () => emitStatus("offline");
+        window.addEventListener("beforeunload", beforeUnloadHandler);
 
         return () => {
-            emitStatus("offline");
-            socket.disconnect();
+            window.removeEventListener("beforeunload", beforeUnloadHandler);
+            socket.off("connect", handleConnect);
+            socket.off("usersOnline", handleUsersOnline);
+            socket.off("connect_error");
+
+            if (socket.connected) {
+                emitStatus("offline");
+                socket.disconnect();
+            }
         };
     }, [socket, userId, emitStatus]);
 
@@ -137,7 +151,9 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         logout,
         fetchUser,
         ...userData,
-    }), [userData, logout, fetchUser]);
+        isSidebarOpen,
+        setIsSidebarOpen,
+    }), [userData, fetchUser, logout, isSidebarOpen, setIsSidebarOpen]);
 
     const socketContextValue = useMemo(() => ({
         onlineUsers,

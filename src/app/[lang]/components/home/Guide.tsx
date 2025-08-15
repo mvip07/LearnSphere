@@ -141,7 +141,7 @@ const Guide = () => {
                             <button
                                 key={index}
                                 onClick={() => scrollToStep(index)}
-                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all ${index <= activeStep ? 'bg-blue-600 text-white' : 'bg-white text-gray-400 border-2 border-gray-300'}`}
+                                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all cursor-pointer ${index <= activeStep ? 'bg-blue-600 text-white' : 'bg-white text-gray-400 border-2 border-gray-300'}`}
                             >
                                 {index + 1}
                             </button>
@@ -155,7 +155,7 @@ const Guide = () => {
                 <div ref={containerRef} className="relative overflow-x-auto flex pb-12 scroll-smooth" style={{ scrollSnapType: 'x mandatory' }}>
                     <div className="flex gap-8 px-8">
                         {steps.map((step, index) => (
-                            <div key={index} ref={el => { if (el) stepsRef.current[index] = el; }} className="flex-shrink-0 w-[300px] snap-center">
+                            <div key={index} ref={el => { if (el) stepsRef.current[index] = el; }} className="flex-shrink-0 w-[300px] snap-center cursor-pointer">
                                 <div className={`${step.color} rounded-2xl shadow-xl p-8 h-64 flex flex-col items-center justify-center text-white`}>
                                     <div className="text-5xl mb-4">{step.icon}</div>
                                     <h3 className="text-2xl font-bold text-center mb-2">{step.title}</h3>
@@ -170,7 +170,7 @@ const Guide = () => {
                     <button
                         disabled={activeStep === 0}
                         onClick={() => scrollToStep(Math.max(0, activeStep - 1))}
-                        className="p-3 rounded-full bg-white shadow-md disabled:opacity-50"
+                        className="p-3 rounded-full bg-white shadow-md disabled:opacity-50 cursor-pointer"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -179,7 +179,7 @@ const Guide = () => {
                     <button
                         disabled={activeStep === steps.length - 1}
                         onClick={() => scrollToStep(Math.min(steps.length - 1, activeStep + 1))}
-                        className="p-3 rounded-full bg-white shadow-md disabled:opacity-50"
+                        className="p-3 rounded-full bg-white shadow-md disabled:opacity-50 cursor-pointer"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

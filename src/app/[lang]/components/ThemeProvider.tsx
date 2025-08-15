@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useEffect, useState } from "react";
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
@@ -10,7 +9,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         setMounted(true);
 
         const savedTheme = localStorage.getItem("darkMode");
-
         if (savedTheme !== null) {
             setIsDarkMode(savedTheme === "true");
             document.documentElement.setAttribute("data-theme", savedTheme === "true" ? "dark" : "light");

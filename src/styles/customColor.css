@@ -34,4 +34,7 @@
     --darkInputBorder: #3d4d60;
     --darkPlaceholder: #9ca3af;
     --darkTableHeader: #313d4a;
+    --invalidInput: #FC4C4F;
+    --validInput: #73FFF2;
+    --coinsCl: #e9ad03;
 }

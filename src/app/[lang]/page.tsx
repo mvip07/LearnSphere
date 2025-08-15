@@ -1,4 +1,4 @@
-'use client';
+"use client"
 import Hero from "./components/home/Hero";
 import About from "./components/home/About";
 import Guide from "./components/home/Guide";
@@ -13,7 +13,7 @@ import QuizCategories from "./components/home/QuizCategories";
 import TestimonialSlider from "./components/home/Testimonials";
 import ScrollProgressIndicator from "./components/home/ScrollProgressIndicator";
 
-export default function Home() {
+export default function HomePage() {
     return (
         <>
             <Hero />

@@ -1,9 +1,11 @@
-import { AxiosError } from "axios";
 import { useState, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { showToast } from "@/assets/utils/toatify";
 import { resetPasswordRequest } from "../api/authApi";
-import { NewPasswordState, ValidationErrors, VisiblePassword } from "@/types/Auth/auth.t";
+import { ValidationErrors } from "@/types/general.t";
+import { NewPasswordState, VisiblePassword } from "@/types/auth.t";
+import { ApiErrorProps } from "@/types/apiError.t";
+import { handleApiError } from "@/services/handleApiError/handleApiError";
 
 export const useNewPassword = () => {
     const router = useRouter();
@@ -42,9 +44,7 @@ export const useNewPassword = () => {
             showToast("success", response?.data?.message);
             setTimeout(() => router.push(`/auth/login`), 1500);
         } catch (error) {
-            const err = error as AxiosError<{ message?: string; errors?: { [key: string]: string[] } }>;
-            showToast("error", err?.response?.data?.message || "Enter the information correctly");
-            setValidOrInvalid(err?.response?.data?.errors || {});
+            handleApiError(error as ApiErrorProps, setValidOrInvalid)
         } finally {
             setLoading(false);
         }

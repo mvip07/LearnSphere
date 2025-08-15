@@ -164,7 +164,7 @@ const TestimonialSlider = () => {
                                 onClick={handleCardClick}
                                 onTouchStart={handleTouchStart}
                                 onTouchEnd={handleTouchEnd}
-                                className={`absolute inset-0 w-full max-w-lg mx-auto transition-all duration-500 transform-style-preserve-3d ${opacity} ${zIndex} ${isVisible ? 'translate-y-0' : 'translate-y-20'}`}
+                                className={`absolute inset-0 w-full max-w-lg mx-auto transition-all duration-500 transform-style-preserve-3d cursor-pointer ${opacity} ${zIndex} ${isVisible ? 'translate-y-0' : 'translate-y-20'}`}
                             >
                                 <div className={`absolute inset-0 ${testimonial.color} rounded-xl shadow-2xl p-8 flex flex-col justify-between backface-hidden transition-all duration-300 hover:shadow-xl`}>
                                     <div className="text-white">
@@ -201,7 +201,7 @@ const TestimonialSlider = () => {
                         <button
                             key={index}
                             onClick={() => setActiveIndex(index)}
-                            className={`w-3 h-3 rounded-full transition-all ${index === activeIndex ? 'bg-gray-900 w-6' : 'bg-gray-300'}`}
+                            className={`w-3 h-3 rounded-full transition-all cursor-pointer ${index === activeIndex ? 'bg-gray-900 w-6' : 'bg-gray-300'}`}
                             aria-label={`Go to testimonial ${index + 1}`}
                         />
                     ))}

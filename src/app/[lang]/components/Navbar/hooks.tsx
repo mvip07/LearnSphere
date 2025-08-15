@@ -1,9 +1,7 @@
-
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useCallback, useMemo, useContext } from "react";
-
 import { ThemeContext } from "../ThemeProvider";
-import { User } from "@/types/Navbar/navbar.t";
+import { User } from "@/types/auth.t";
 
 const SUPPORTED_LOCALES = ["uz", "en", "ru"] as const;
 const DEFAULT_LOCALE = "uz";
@@ -19,21 +17,19 @@ export const useLanguage = () => {
     const router = useRouter();
 
     const getCurrentLocale = useCallback((): LanguageCode => {
-        const pathSegments = pathname.split("/").filter((segment) => segment);
+        const pathSegments = pathname.split("/").filter(Boolean);
         const firstSegment = pathSegments[0] as LanguageCode;
         return SUPPORTED_LOCALES.includes(firstSegment) ? firstSegment : DEFAULT_LOCALE;
     }, [pathname]);
 
     const [selectedLang, setSelectedLang] = useState<LanguageCode>(() => {
-        if (typeof window !== "undefined") {
-            const savedLang = localStorage.getItem("lang") as LanguageCode | null;
-            return savedLang && SUPPORTED_LOCALES.includes(savedLang) ? savedLang : getCurrentLocale();
-        }
-        return DEFAULT_LOCALE;
+        if (typeof window === "undefined") return DEFAULT_LOCALE;
+        const savedLang = localStorage.getItem("lang") as LanguageCode | null;
+        return savedLang && SUPPORTED_LOCALES.includes(savedLang) ? savedLang : getCurrentLocale();
     });
 
     const setLanguageCookie = useCallback((lang: LanguageCode) => {
-        document.cookie = `lang=${lang}; path=/; max-age=${60 * 60 * 24 * 30}`; // 30 days
+        document.cookie = `lang=${lang}; path=/; max-age=${60 * 60 * 24 * 30}`;
     }, []);
 
     const changeLanguage = useCallback((lang: LanguageCode) => {
@@ -44,11 +40,8 @@ export const useLanguage = () => {
         localStorage.setItem("lang", lang);
         setLanguageCookie(lang);
 
-        let cleanPathname = pathname;
-        SUPPORTED_LOCALES.forEach((locale) => {
-            cleanPathname = cleanPathname.replace(new RegExp(`^/${locale}(?=/|$)`, "i"), "");
-        });
-        const newPath = cleanPathname === "/" ? `/${lang}` : `/${lang}${cleanPathname}`;
+        const cleanPathname = pathname.replace(/^\/(uz|en|ru)(?=$|\/)/, "") || "/";
+        const newPath = `/${lang}${cleanPathname === "/" ? "" : cleanPathname}`;
         router.push(newPath);
     }, [pathname, router, setLanguageCookie]);
 
@@ -56,15 +49,14 @@ export const useLanguage = () => {
 };
 
 export const useUserData = (user: User | null) => {
-    return useMemo(() =>
-        user
-            ? {
-                id: user.id,
-                firstname: user.firstname?.length > 10 ? user.firstname.slice(0, 10) + "..." : user.firstname,
-                lastname: user.lastname?.length > 10 ? user.lastname.slice(0, 14) + "..." : user.lastname,
-                username: user.username?.length > 18 ? user.username.slice(0, 18) + "..." : user.username,
-                image: user.image,
-            }
-            : null,
-        [user]);
+    return useMemo(() => {
+        if (!user) return null;
+        return {
+            id: user.id,
+            firstname: user.firstname?.length > 10 ? user.firstname.slice(0, 10) + "..." : user.firstname,
+            lastname: user.lastname?.length > 10 ? user.lastname.slice(0, 14) + "..." : user.lastname,
+            username: user.username?.length > 18 ? user.username.slice(0, 18) + "..." : user.username,
+            image: user.image,
+        };
+    }, [user]);
 };

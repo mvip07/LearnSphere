@@ -1,7 +1,7 @@
 "use client";
 
-import Navbar from "../Navbar/Navbar";
-import CabinetSideBar from "../Sidebar/Sidebar";
+import Navbar from "../navbar/Navbar";
+import CabinetSideBar from "../sidebar/Sidebar";
 import { CABINETSIDEBAR } from "@/assets/utils/sideBarData";
 import { useAppContext } from "@/context/AppContext";
 
