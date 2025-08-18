@@ -1,1 +1,1 @@
-export const host = `http://localhost:8000`;
+export const host = `https://learnsphere-online-backend.vercel.app`;
