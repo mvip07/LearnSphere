@@ -1,4 +1,4 @@
-import API from "@/assets/api";
+import API from "@assets/api";
 
 export const followApi = async (followerId: string, followingId: string) => {
     return API.post(`follow/${followerId}/${followingId}`);

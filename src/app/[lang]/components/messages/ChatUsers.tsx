@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Empty from "../Empty";
-import useTranslation from "@/services/languages";
-import { useSocketContext } from "@/context/AppContext";
-import { useChatUsers } from "@/features/cabinet/messages/hooks/useChatUsers";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
+import useTranslation from "@services/languages";
+import { useSocketContext } from "@context/AppContext";
+import { useChatUsers } from "@features/cabinet/messages/hooks/useChatUsers";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
 
 const ChatUsers = ({ currentUserId, typingUsers, receiverUserId }: { currentUserId: string; typingUsers: string[]; receiverUserId: string }) => {
     const t = useTranslation()

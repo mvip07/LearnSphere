@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import { useGoogleLogin } from '@react-oauth/google';
 
-import API from '@/assets/api';
-import { showToast } from '@/assets/utils/toatify';
-import { useVerificationStore } from '@/stores/verificationStore';
-import { useGoToNextPage } from '@/hooks/useGoToNextPage';
+import API from '@assets/api';
+import { showToast } from '@assets/utils/toatify';
+import { useVerificationStore } from '@stores/verificationStore';
+import { useGoToNextPage } from '@hooks/useGoToNextPage';
 
 export default function GoogleAuthButton({ title }: { title: string }) {
     const goTo = useGoToNextPage()

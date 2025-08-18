@@ -1,11 +1,11 @@
 import { AxiosError } from "axios";
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect, useRef, useCallback, ChangeEvent, KeyboardEvent, ClipboardEvent } from "react";
-import { showToast } from "@/assets/utils/toatify";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { showToast } from "@assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 import { sendVerificationCode, confirmVerificationCode } from "../api/authApi";
-import { useVerificationStore, initializeVerificationStore } from '@/stores/verificationStore';
+import { useVerificationStore, initializeVerificationStore } from '@stores/verificationStore';
 
 export const useVerification = () => {
     const router = useRouter();

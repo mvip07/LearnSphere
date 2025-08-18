@@ -2,11 +2,11 @@
 import { useTopics } from "./hooks/useTopics";
 import { TopicTable } from "./components/TopicTable";
 import { TopicModal } from "./components/TopicModal";
-import Empty from "@/app/[lang]/components/Empty";
-import Loader from "@/app/[lang]/components/Loader";
-import { DeleteModal } from "@/app/[lang]/components/dashboard/DeleteModal";
-import { TableHeader } from "@/app/[lang]/components/dashboard/TableHeader";
-import { TableFooter } from "@/app/[lang]/components/dashboard/TableFooter";
+import Empty from "@components/Empty";
+import Loader from "@components/Loader";
+import { DeleteModal } from "@components/dashboard/DeleteModal";
+import { TableHeader } from "@components/dashboard/TableHeader";
+import { TableFooter } from "@components/dashboard/TableFooter";
 import TopicSorted from "./components/TopicSorted";
 
 export default function Topics() {

@@ -1,7 +1,7 @@
-import API from "@/assets/api";
-import { CreateTopic } from "@/types/quiz.t";
-import { QueryParams } from "@/types/filter.t";
-import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "@/types/api.t";
+import API from "@assets/api";
+import { CreateTopic } from "types/quiz";
+import { QueryParams } from "types/filter";
+import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "types/api";
 
 export const create = async (data: CreateTopic): Promise<CreateReq> => {
     return await API.post("topic/create", data);

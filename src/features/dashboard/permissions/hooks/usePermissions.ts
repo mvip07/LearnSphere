@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { showToast } from "@/assets/utils/toatify";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { ValidationErrors } from "@/types/general.t";
-import { UsePermissionsReturn } from "@/types/hook.t";
-import { CreatePermission, Permission } from "@/types/role.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { showToast } from "@assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { ValidationErrors } from "types/general";
+import { UsePermissionsReturn } from "types/hook";
+import { CreatePermission, Permission } from "types/role";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 import { create, deleteMultiple, getList, update } from "../services/permissionService";
 
 export const usePermissions = (): UsePermissionsReturn => {

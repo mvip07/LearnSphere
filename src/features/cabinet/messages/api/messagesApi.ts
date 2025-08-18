@@ -1,4 +1,4 @@
-import API from "@/assets/api/index";
+import API from "@assets/api/index";
 
 export const getUserRequest = async (receiverUserId: string) => {
     return await API.get(`/user/id/${receiverUserId}`);

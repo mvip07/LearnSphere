@@ -6,8 +6,8 @@ import Loader from "@components/Loader";
 import { useLanguage } from "@components/navbar/hooks";
 import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
-import { useVerification } from "@/features/auth/hooks/useVerification";
-import useTranslation from "@/services/languages";
+import { useVerification } from "@features/auth/hooks/useVerification";
+import useTranslation from "@services/languages";
 
 export default function Verification() {
     const t = useTranslation()

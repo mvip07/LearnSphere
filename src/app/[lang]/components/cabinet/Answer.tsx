@@ -3,8 +3,8 @@ import { useParams } from "next/navigation";
 import { FaCoins, FaLeftLong, FaRightLong } from "react-icons/fa6";
 import Empty from "../Empty";
 import QuizDetails from "./QuizDetails";
-import { Answer } from "@/types/quiz.t";
-import useTranslation from "@/services/languages";
+import { Answer } from "types/quiz";
+import useTranslation from "@services/languages";
 
 const Answers = ({ answers }: { answers: Answer[] }) => {
     const t = useTranslation();

@@ -1,10 +1,10 @@
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
-import { showToast } from "@/assets/utils/toatify";
-import Loader from "@/app/[lang]/components/Loader";
-import { CreateTopic } from "@/types/quiz.t";
-import { TopicModalProps } from "@/types/component.t";
+import { showToast } from "@assets/utils/toatify";
+import Loader from "@components/Loader";
+import { CreateTopic } from "types/quiz";
+import { TopicModalProps } from "types/component";
 
 export const TopicModal = ({ title, isOpen, onClose, onSubmit, isLoading, categories, initialData, validOrInvalid }: TopicModalProps) => {
     const [formData, setFormData] = useState<CreateTopic>({ title: "", categoryId: ""});

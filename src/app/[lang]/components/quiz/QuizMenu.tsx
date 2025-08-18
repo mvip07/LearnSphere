@@ -2,7 +2,7 @@
 import { memo } from "react";
 import FinalModal from "./Test/FinalModal";
 import QuizQuestion from "./Test/QuizQuestion";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
 
 const QuizMenu = () => {
     const { quizCompleted, score } = useQuizStore();

@@ -1,6 +1,6 @@
 import React from "react";
 import Empty from "../Empty";
-import { Level } from "@/types/quiz.t";
+import { Level } from "types/quiz";
 
 const Levels = ({ levels }: { levels: Level[] }) => {
     return levels.length ? (

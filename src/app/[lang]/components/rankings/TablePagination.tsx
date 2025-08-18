@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
-import useTranslation from "@/services/languages";
+import useTranslation from "@services/languages";
 import { FaLeftLong, FaRightLong } from "react-icons/fa6";
-import { TablePaginationProps } from "@/types/component.t";
+import { TablePaginationProps } from "types/component";
 
 const TablePagination = memo(({ page, totalPages, onPageChange }: TablePaginationProps) => {
     const t = useTranslation();

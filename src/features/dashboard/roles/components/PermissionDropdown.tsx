@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { FaCheck, FaXmark } from "react-icons/fa6";
-import Loader from "@/app/[lang]/components/Loader";
-import { PermissionDropdownProps } from "@/types/component.t";
+import Loader from "@components/Loader";
+import { PermissionDropdownProps } from "types/component";
 
 const PermissionDropdown = memo(({ role, isLoading, onClose, permissions, permissionChecked, validOrInvalid, setPermissionChecked, handlePermissionEdit }: PermissionDropdownProps) => {
     const handlePermissionToggle = useCallback((permissionId: string) => {

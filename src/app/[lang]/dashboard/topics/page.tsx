@@ -1,4 +1,4 @@
-import Topics from "@/features/dashboard/topics/Topics";
+import Topics from "@features/dashboard/topics/Topics";
 
 export default function TopicPage() {
     return <Topics />

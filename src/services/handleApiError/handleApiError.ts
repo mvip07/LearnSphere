@@ -1,6 +1,6 @@
-import { showToast } from "@/assets/utils/toatify";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { ValidationErrors } from "@/types/general.t";
+import { showToast } from "@assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { ValidationErrors } from "types/general";
 
 export function handleApiError(err: ApiErrorProps, setValidOrInvalid?: (errors: ValidationErrors) => void) {
     const { statusCode, errors, message } = err.response?.data || {};

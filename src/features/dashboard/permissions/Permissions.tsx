@@ -1,13 +1,13 @@
 "use client";
-import { DeleteModal } from "@/app/[lang]/components/dashboard/DeleteModal";
+import { DeleteModal } from "@components/dashboard/DeleteModal";
 import { PermissionTable } from "./components/PermissionTable";
 import { PermissionModal } from "./components/PermissionModal";
 import { usePermissions } from "./hooks/usePermissions";
 
-import Empty from "@/app/[lang]/components/Empty";
-import Loader from "@/app/[lang]/components/Loader";
-import { TableHeader } from "@/app/[lang]/components/dashboard/TableHeader";
-import { TableFooter } from "@/app/[lang]/components/dashboard/TableFooter";
+import Empty from "@components/Empty";
+import Loader from "@components/Loader";
+import { TableHeader } from "@components/dashboard/TableHeader";
+import { TableFooter } from "@components/dashboard/TableFooter";
 
 export default function Permissions() {
     const {

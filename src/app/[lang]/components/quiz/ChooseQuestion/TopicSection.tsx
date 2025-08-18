@@ -1,4 +1,4 @@
-import { TopicProps } from "@/types/component.t";
+import { TopicProps } from "types/component";
 
 const TopicSection = ({ options, isSelected, onToggle }: TopicProps) => (
     options.map(({ id, title }) => (

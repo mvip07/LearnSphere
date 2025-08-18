@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaXmark } from "react-icons/fa6";
-import { MultilangQuestion, Question } from "@/types/quiz.t";
+import { MultilangQuestion, Question } from "types/quiz";
 
 interface QuestionPreviewModalProps {
     lang: string;

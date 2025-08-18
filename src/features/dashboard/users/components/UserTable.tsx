@@ -3,7 +3,7 @@ import { FaEdit } from 'react-icons/fa';
 import React, { useCallback } from 'react';
 import { FaEye, FaTrashCan, FaCheck } from 'react-icons/fa6';
 import { COLUMNS } from '../constants/constants';
-import { UserTableProps } from '@/types/component.t';
+import { UserTableProps } from 'types/component';
 
 const UserTable = ({ onEdit, users, checked, onDelete, setChecked }: UserTableProps) => {
     const handleRowCheck = useCallback((userId: string) => {

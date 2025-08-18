@@ -1,10 +1,10 @@
 import React from "react";
 import { IconType } from "react-icons/lib";
-import { Language, ValidationErrors } from "./general.t";
-import { User, CreateUser, Follower, Following } from "./auth.t";
-import { Filter, ProfileRankingState, SortByState } from "./filter.t";
-import { Permission, Role, CreatePermission, CreateRole, EditPermission } from "./role.t";
-import { CreateCategory, CreateLevel, CreateQuestion, CreateTopic, Answer, Answers, Category, Level, Question, Topic, ModalStep, AnswerQuestion } from "./quiz.t";
+import { Language, ValidationErrors } from "./general";
+import { User, CreateUser, Follower, Following } from "./auth";
+import { Filter, ProfileRankingState, SortByState } from "./filter";
+import { Permission, Role, CreatePermission, CreateRole, EditPermission } from "./role";
+import { CreateCategory, CreateLevel, CreateQuestion, CreateTopic, Answer, Answers, Category, Level, Question, Topic, ModalStep, AnswerQuestion } from "./quiz";
 
 export interface FollowSectionProps {
     followers: Follower[];

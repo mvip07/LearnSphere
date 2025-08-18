@@ -1,5 +1,5 @@
-import { Filter, FilterConfig } from "@/types/filter.t";
-import { Category, CreateQuestion, Level, Topic } from "@/types/quiz.t";
+import { Filter, FilterConfig } from "types/filter";
+import { Category, CreateQuestion, Level, Topic } from "types/quiz";
 
 export const QUESTION_TYPES = {
     ALL: ['multiple-choice', 'input', 'fill-in-the-blank', 'image', 'video', 'audio'],

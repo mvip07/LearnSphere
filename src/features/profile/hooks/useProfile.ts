@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { showToast } from "@/assets/utils/toatify";
-import { useLoader } from "@/context/LoaderContext";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import { User } from "@/types/auth.t";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { showToast } from "@assets/utils/toatify";
+import { useLoader } from "@context/LoaderContext";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { User } from "types/auth";
+import { ApiErrorProps } from "types/apiError";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 import { profileById, follow, unFollow, checkFollowStatus } from "../api/profileApi";
 
 const useProfile = (userId: string) => {

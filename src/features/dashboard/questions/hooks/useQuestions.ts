@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { showToast } from "@/assets/utils/toatify";
+import { showToast } from "@assets/utils/toatify";
 import { DEFAULT_FILTER } from "../constants/constants";
-import { UseQuestionsReturn } from "@/types/hook.t";
-import { ValidationErrors } from "@/types/general.t";
-import { Filter, QueryParams } from "@/types/filter.t";
-import { Category, CreateQuestion, Level, Question, Topic } from "@/types/quiz.t";
+import { UseQuestionsReturn } from "types/hook";
+import { ValidationErrors } from "types/general";
+import { Filter, QueryParams } from "types/filter";
+import { Category, CreateQuestion, Level, Question, Topic } from "types/quiz";
 import { create, deleteMultiple, getList, update } from '../services/questionService';
-import { handleApiError } from "@/services/handleApiError/handleApiError";
-import { ApiErrorProps } from "@/types/apiError.t";
+import { handleApiError } from "@services/handleApiError/handleApiError";
+import { ApiErrorProps } from "types/apiError";
 
 const parseQueryParams = (searchParams: URLSearchParams): QueryParams => ({
     page: Number(searchParams.get('page')) || 1,

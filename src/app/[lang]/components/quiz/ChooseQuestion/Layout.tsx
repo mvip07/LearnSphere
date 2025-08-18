@@ -1,7 +1,7 @@
 import { FaLeftLong, FaRightLong } from "react-icons/fa6";
-import useTranslation from "@/services/languages";
-import { useElementHeights } from "@/features/cabinet/hooks/useElementHeights";
-import { QuizLayoutPorps } from "@/types/component.t";
+import useTranslation from "@services/languages";
+import { useElementHeights } from "@features/cabinet/hooks/useElementHeights";
+import { QuizLayoutPorps } from "types/component";
 
 
 const QuizLayout = ({ hTitle, onSubmit, arr, currentStep, handleBack, children }: QuizLayoutPorps) => {

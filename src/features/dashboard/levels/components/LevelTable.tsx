@@ -1,6 +1,6 @@
 import { FaEdit } from "react-icons/fa";
 import { FaCheck, FaTrashCan } from "react-icons/fa6";
-import { LevelTableProps } from "@/types/component.t";
+import { LevelTableProps } from "types/component";
 
 export const LevelTable = ({ levels, checked, setChecked, onEdit, onDelete }: LevelTableProps) => {
     return (

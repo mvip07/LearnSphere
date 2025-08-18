@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { FaPlus } from "react-icons/fa6";
-import { TableHeaderProps } from "@/types/component.t";
+import { TableHeaderProps } from "types/component";
 
 export const TableHeader = ({ limit, search, btnTitle, onAddClick, onLimitChange }: TableHeaderProps) => {
     const inputRef = useRef<HTMLInputElement>(null);

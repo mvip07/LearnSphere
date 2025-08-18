@@ -7,9 +7,9 @@ import QuizTimer from "./QuizTimer";
 import InputQuestion from "../Test/InputQuestion";
 import MultipleChoice from "../Test/MultipleChoice";
 import FillInTheBlank from "../Test/FillInTheBlank";
-import useTranslation from "@/services/languages";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
-import { useAnswerStatus } from "@/features/cabinet/quiz/hooks/useAnswerStatus";
+import useTranslation from "@services/languages";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
+import { useAnswerStatus } from "@features/cabinet/quiz/hooks/useAnswerStatus";
 
 const QuizQuestion = () => {
     const { count, questions, handleNext, answers, initializeQuiz } = useQuizStore();

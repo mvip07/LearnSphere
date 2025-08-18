@@ -1,4 +1,4 @@
-import { LevelProps } from "@/types/component.t";
+import { LevelProps } from "types/component";
 
 const LevelSection = ({ options, isSelected, onToggle }: LevelProps) => (
     <div className="flex flex-wrap gap-2">

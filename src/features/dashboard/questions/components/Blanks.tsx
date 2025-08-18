@@ -1,5 +1,5 @@
-import { ValidationErrors } from '@/types/general.t';
-import { Blank } from '@/types/quiz.t';
+import { ValidationErrors } from 'types/general';
+import { Blank } from 'types/quiz';
 import { FaXmark } from 'react-icons/fa6';
 
 interface BlanksSectionProps {

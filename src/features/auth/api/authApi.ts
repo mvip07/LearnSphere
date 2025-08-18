@@ -1,5 +1,5 @@
-import API from "@/assets/api/index";
-import { EmailRequest, LoginUser, RegisterUser } from "@/types/auth.t";
+import API from "@assets/api/index";
+import { EmailRequest, LoginUser, RegisterUser } from "types/auth";
 
 export const forgotPasswordRequest = async (forgotPasswordData: EmailRequest) => {
     return await API.post("auth/forgot-password", forgotPasswordData);

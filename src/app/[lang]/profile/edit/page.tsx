@@ -4,8 +4,8 @@ import { useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { FaUpload, FaXmark } from "react-icons/fa6";
 
-import useTranslation from "@/services/languages";
-import { useEditProfile } from "@/features/profile/hooks/useEditProfile";
+import useTranslation from "@services/languages";
+import { useEditProfile } from "@features/profile/hooks/useEditProfile";
 
 export default function Profile() {
     const [userImgActive, setUserImgActive] = useState(false);

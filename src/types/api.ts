@@ -1,6 +1,6 @@
-import { User } from "./auth.t";
-import { Permission, Role } from "./role.t";
-import { Answers, Category, Level, Question, Topic } from "./quiz.t";
+import { User } from "./auth";
+import { Permission, Role } from "./role";
+import { Answers, Category, Level, Question, Topic } from "./quiz";
 
 export interface AnswerResult {
     userId: string;

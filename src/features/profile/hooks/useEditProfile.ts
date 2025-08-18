@@ -1,13 +1,13 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 
 import { AxiosError } from "axios";
-import { showToast } from "@/assets/utils/toatify";
-import { useAppContext } from "@/context/AppContext";
+import { showToast } from "@assets/utils/toatify";
+import { useAppContext } from "@context/AppContext";
 import { deleteProfileImage, updateUserProfile } from "../api/editProfileApi";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import { useVerificationStore } from "@/stores/verificationStore";
-import { ProfileEdit } from "@/types/auth.t";
-import { ValidationErrors } from "@/types/general.t";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { useVerificationStore } from "@stores/verificationStore";
+import { ProfileEdit } from "types/auth";
+import { ValidationErrors } from "types/general";
 
 export const useEditProfile = () => {
     const goTo = useGoToNextPage()

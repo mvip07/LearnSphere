@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
 
 export const useAnswerStatus = () => {
     const { count, answers, questions } = useQuizStore();

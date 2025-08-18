@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
-import { User, Follower, Following } from "./auth.t";
-import { Answer, Result, Category, Level, Topic, ModalStep, Answers, Question } from "./quiz.t";
+import { User, Follower, Following } from "./auth";
+import { Answer, Result, Category, Level, Topic, ModalStep, Answers, Question } from "./quiz";
 
 export interface UserFollowData {
     user: User | null;

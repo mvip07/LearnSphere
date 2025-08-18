@@ -1,11 +1,11 @@
 import { AxiosError } from "axios";
 import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { showToast } from "@/assets/utils/toatify";
+import { showToast } from "@assets/utils/toatify";
 import { create, deleteMultiple, getList, update, updatePermission } from "../services/roleService";
-import { UseRolesReturn } from "@/types/hook.t";
-import { CreateRole, EditPermission, Permission, Role } from "@/types/role.t";
-import { ValidationErrors } from "@/types/general.t";
+import { UseRolesReturn } from "types/hook";
+import { CreateRole, EditPermission, Permission, Role } from "types/role";
+import { ValidationErrors } from "types/general";
 
 export const useRoles = (): UseRolesReturn => {
     const router = useRouter();

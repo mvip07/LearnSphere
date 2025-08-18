@@ -1,11 +1,11 @@
 import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { registerUser } from "../api/authApi";
-import { showToast } from "@/assets/utils/toatify";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { ValidationErrors } from "@/types/general.t";
-import { RegisterUser, VisiblePassword } from "@/types/auth.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { showToast } from "@assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { ValidationErrors } from "types/general";
+import { RegisterUser, VisiblePassword } from "types/auth";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useRegister = () => {
     const router = useRouter();

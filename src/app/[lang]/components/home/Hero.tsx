@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import * as THREE from 'three';
 import { Box } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGoToNextPage } from '@/hooks/useGoToNextPage';
+import { useGoToNextPage } from '@hooks/useGoToNextPage';
 
 const QuizBox = ({ position }: { position: [number, number, number] }) => {
     const meshRef = useRef<THREE.Mesh>(null);

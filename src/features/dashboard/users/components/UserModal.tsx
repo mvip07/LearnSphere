@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React, { useCallback, useEffect, useRef, memo } from 'react';
 import { FaXmark, FaUpload, FaTrash } from 'react-icons/fa6';
-import Loader from '@/app/[lang]/components/Loader';
+import Loader from '@components/Loader';
 import { DEFAULT_USER } from '../constants/constants';
-import { UserModalProps } from '@/types/component.t';
-import { CreateUser } from '@/types/auth.t';
+import { UserModalProps } from 'types/component';
+import { CreateUser } from 'types/auth';
 
 const UserModal = ({ title, roles, isOpen, isLoading, onClose, onSubmit, initialData, validOrInvalid }: UserModalProps) => {
     const fileInputRef = useRef<HTMLInputElement>(null);

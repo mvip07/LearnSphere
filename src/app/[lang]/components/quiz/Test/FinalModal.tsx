@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { useRouter } from "next/navigation";
 import { FaCircleCheck } from "react-icons/fa6";
-import useTranslation from "@/services/languages";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
-import { FinalModalProps } from "@/types/component.t";
+import useTranslation from "@services/languages";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
+import { FinalModalProps } from "types/component";
 
 const FinalModal = ({ total, totalCoins, correctAnswers }: FinalModalProps) => {
     const router = useRouter();

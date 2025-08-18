@@ -4,9 +4,9 @@ import Image from "next/image";
 import { FaClock, FaXmark } from "react-icons/fa6";
 import Link from "next/link";
 import { useActive } from "./useActive";
-import useTranslation from "@/services/languages";
-import { SideBarProps } from "@/types/component.t";
-import { useAppContext } from "@/context/AppContext";
+import useTranslation from "@services/languages";
+import { SideBarProps } from "types/component";
+import { useAppContext } from "@context/AppContext";
 import { FaBars } from "react-icons/fa";
 
 const CabinetSideBar = ({ sidebar }: { sidebar: SideBarProps[] }) => {

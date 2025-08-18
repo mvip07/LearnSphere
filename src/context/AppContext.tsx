@@ -1,13 +1,13 @@
 "use client";
 import socketIOClient from "socket.io-client";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, useRef } from "react";
-import API from "@/assets/api";
+import API from "@assets/api";
 import { useLoader } from "./LoaderContext";
-import { UserDto } from "@/types/auth.t";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { CabinetContextType, SocketContextType, UserFollowData } from "@/types/state.t";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { UserDto } from "types/auth";
+import { ApiErrorProps } from "types/apiError";
+import { CabinetContextType, SocketContextType, UserFollowData } from "types/state";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 
 const DEFAULT_USER = {
     user: null,

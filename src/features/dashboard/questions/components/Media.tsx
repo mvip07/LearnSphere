@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
 import { FaUpload, FaXmark } from 'react-icons/fa6';
-import { ValidationErrors } from '@/types/general.t';
-import { CreateQuestion, QuestionType } from '@/types/quiz.t';
+import { ValidationErrors } from 'types/general';
+import { CreateQuestion, QuestionType } from 'types/quiz';
 
 interface MediaSectionProps {
     formData: CreateQuestion;

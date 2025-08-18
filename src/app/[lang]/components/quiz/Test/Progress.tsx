@@ -1,5 +1,5 @@
 import React from "react";
-import { CircleProgressProps } from "@/types/component.t";
+import { CircleProgressProps } from "types/component";
 
 export const CircleProgress = ({ timeLeft, size = 100, progress = 0, strokeWidth = 10 }: CircleProgressProps) => {
     const radius = Math.max((size - strokeWidth) / 2, 1);

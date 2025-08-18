@@ -1,4 +1,4 @@
-import { CategoryProps } from "@/types/component.t";
+import { CategoryProps } from "types/component";
 
 const CategorySection = ({ options, isSelected, onToggle }: CategoryProps) => (
     <div className="flex flex-wrap gap-2">

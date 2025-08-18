@@ -1,5 +1,5 @@
 import { FaMessage } from "react-icons/fa6"
-import useTranslation from "@/services/languages"
+import useTranslation from "@services/languages"
 
 const WelcomeChat = () => {
     const t = useTranslation()

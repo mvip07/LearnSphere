@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Empty from "../Empty";
-import { Category } from "@/types/quiz.t";
-import useTranslation from "@/services/languages";
+import { Category } from "types/quiz";
+import useTranslation from "@services/languages";
 
 const Categories = ({ categories }: { categories: Category[] }) => {
     const t = useTranslation();

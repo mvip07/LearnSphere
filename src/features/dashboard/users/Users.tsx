@@ -1,14 +1,14 @@
 import React, { memo, useCallback } from 'react';
 import { useUsers } from './hooks/useUsers';
-import Loader from '@/app/[lang]/components/Loader';
-import { TableFooter } from '@/app/[lang]/components/dashboard/TableFooter';
-import { TableHeader } from '@/app/[lang]/components/dashboard/TableHeader';
+import Loader from '@components/Loader';
+import { TableFooter } from '@components/dashboard/TableFooter';
+import { TableHeader } from '@components/dashboard/TableHeader';
 import UserTable from './components/UserTable';
-import Empty from '@/app/[lang]/components/Empty';
+import Empty from '@components/Empty';
 import UserModal from './components/UserModal';
-import { DeleteModal } from '@/app/[lang]/components/dashboard/DeleteModal';
+import { DeleteModal } from '@components/dashboard/DeleteModal';
 import UserSorted from './components/UserSorted';
-import { User } from '@/types/auth.t';
+import { User } from 'types/auth';
 
 const Users: React.FC = () => {
     const {

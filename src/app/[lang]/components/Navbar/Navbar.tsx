@@ -8,12 +8,12 @@ import { BiCommentDots } from "react-icons/bi";
 import { TiWeatherSunny } from "react-icons/ti";
 import { FaRegMoon, FaBars, FaBell, FaXmark } from "react-icons/fa6";
 
-import { useAppContext } from "@/context/AppContext";
+import { useAppContext } from "@context/AppContext";
 
 import { UserDropdown } from "./UserDropdown";
 import { LanguageDropdown } from "./LanguageDropdown";
 import { useLanguage, useTheme, useUserData } from "./hooks";
-import useTranslation from "@/services/languages";
+import useTranslation from "@services/languages";
 
 const Navbar = memo(() => {
     const t = useTranslation()

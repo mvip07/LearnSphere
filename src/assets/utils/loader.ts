@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoader } from '@/context/LoaderContext';
+import { useLoader } from '@context/LoaderContext';
 
 export const useToggleLoader = () => {
     const { showLoader, hideLoader } = useLoader();

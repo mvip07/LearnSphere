@@ -1,12 +1,12 @@
 "use client";
 import { useLevels } from "./hooks/useLevels";
-import Loader from "@/app/[lang]/components/Loader";
-import Empty from "@/app/[lang]/components/Empty";
+import Loader from "@components/Loader";
+import Empty from "@components/Empty";
 import { LevelModal } from "./components/LevelModal";
 import { LevelTable } from "./components/LevelTable";
-import { DeleteModal } from "@/app/[lang]/components/dashboard/DeleteModal";
-import { TableHeader } from "@/app/[lang]/components/dashboard/TableHeader";
-import { TableFooter } from "@/app/[lang]/components/dashboard/TableFooter";
+import { DeleteModal } from "@components/dashboard/DeleteModal";
+import { TableHeader } from "@components/dashboard/TableHeader";
+import { TableFooter } from "@components/dashboard/TableFooter";
 
 export default function Levels() {
     const {

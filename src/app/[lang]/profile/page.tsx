@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
 
 export default function ProfileRedirect() {
     const goTo = useGoToNextPage();

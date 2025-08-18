@@ -1,4 +1,4 @@
-import useTranslation from "@/services/languages";
+import useTranslation from "@services/languages";
 import { PiEmpty } from "react-icons/pi";
 
 export default function Empty() {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
-import { CreateLevel } from "@/types/quiz.t";
-import Loader from "@/app/[lang]/components/Loader";
-import { LevelModalProps } from "@/types/component.t";
+import { CreateLevel } from "types/quiz";
+import Loader from "@components/Loader";
+import { LevelModalProps } from "types/component";
 
 export const LevelModal: React.FC<LevelModalProps> = ({ title, isOpen, onClose, onSubmit, isLoading, validOrInvalid, initialData }) => {
     const [formData, setFormData] = useState<CreateLevel>({

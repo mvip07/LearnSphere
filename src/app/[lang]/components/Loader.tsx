@@ -1,5 +1,5 @@
-import "@/styles/loader.css"
-import { StyleProps } from "@/types/component.t"
+import "@styles/loader.css"
+import { StyleProps } from "types/component"
 
 export default function Loader({ style }: { style: StyleProps }) {
     return (

@@ -1,8 +1,8 @@
-import { ApiErrorProps } from "@/types/apiError.t";
-import { useAppContext } from "@/context/AppContext";
-import { showToast } from "@/assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { useAppContext } from "@context/AppContext";
+import { showToast } from "@assets/utils/toatify";
 import { followApi, unFollowApi } from "../api/follow";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useFollow = () => {
     const { fetchUser } = useAppContext()

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { showToast } from "@/assets/utils/toatify";
+import { showToast } from "@assets/utils/toatify";
 import { forgotPasswordRequest } from "../api/authApi";
-import { ForgotPasswordState } from "@/types/auth.t";
-import { ValidationErrors } from "@/types/general.t";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { ForgotPasswordState } from "types/auth";
+import { ValidationErrors } from "types/general";
+import { ApiErrorProps } from "types/apiError";
+import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useForgotPassword = () => {
     const router = useRouter();

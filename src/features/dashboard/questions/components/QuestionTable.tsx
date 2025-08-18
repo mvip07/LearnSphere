@@ -3,8 +3,8 @@ import { FaEdit } from "react-icons/fa";
 import { useParams } from "next/navigation";
 import { FaCheck, FaEye, FaTrashCan } from "react-icons/fa6";
 import { QuestionPreviewModal } from "./QuestionPreviewModal";
-import { MultilangQuestion, Question } from "@/types/quiz.t";
-import { QuestionTableProps } from "@/types/component.t";
+import { MultilangQuestion, Question } from "types/quiz";
+import { QuestionTableProps } from "types/component";
 
 export const QuestionTable = ({ onEdit, checked, onDelete, questions, setChecked }: QuestionTableProps) => {
     const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);

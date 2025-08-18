@@ -7,13 +7,13 @@ import Loader from "@components/Loader";
 import { useLanguage } from "@components/navbar/hooks";
 import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
-import { useRegister } from "@/features/auth/hooks/useRegister";
+import { useRegister } from "@features/auth/hooks/useRegister";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import GoogleAuthButton from "@/services/googleAuth/GoogleAuthButton";
+import GoogleAuthButton from "@services/googleAuth/GoogleAuthButton";
 
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import useTranslation from "@/services/languages";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import useTranslation from "@services/languages";
 
 export default function Register() {
     const t = useTranslation()

@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { showToast } from "@/assets/utils/toatify";
+import { showToast } from "@assets/utils/toatify";
 import { create, deleteMultiple, getList, update } from "../services/categoryService";
-import { ValidationErrors } from "@/types/general.t";
-import { UseCategoriesReturn } from "@/types/hook.t";
-import { Category, CreateCategory } from "@/types/quiz.t";
-import { handleApiError } from "@/services/handleApiError/handleApiError";
-import { ApiErrorProps } from "@/types/apiError.t";
+import { ValidationErrors } from "types/general";
+import { UseCategoriesReturn } from "types/hook";
+import { Category, CreateCategory } from "types/quiz";
+import { handleApiError } from "@services/handleApiError/handleApiError";
+import { ApiErrorProps } from "types/apiError";
 
 export const useCategories = (): UseCategoriesReturn => {
     const router = useRouter();

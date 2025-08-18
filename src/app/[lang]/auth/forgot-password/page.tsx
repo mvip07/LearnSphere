@@ -5,9 +5,9 @@ import Loader from "@components/Loader";
 import { useLanguage } from "@components/navbar/hooks";
 import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import { useForgotPassword } from "@/features/auth/hooks/useForgotPassword";
-import useTranslation from "@/services/languages";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { useForgotPassword } from "@features/auth/hooks/useForgotPassword";
+import useTranslation from "@services/languages";
 
 export default function ForgotPassword() {
     const t = useTranslation()

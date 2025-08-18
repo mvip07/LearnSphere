@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { UserDropdownProps } from "@/types/component.t";
+import { UserDropdownProps } from "types/component";
 import { FaAngleUp, FaAngleDown, FaRegUser } from "react-icons/fa";
 import { FaAddressBook, FaArrowRightFromBracket, FaGear } from "react-icons/fa6";
 

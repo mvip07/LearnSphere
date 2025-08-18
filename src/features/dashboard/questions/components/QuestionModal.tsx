@@ -2,14 +2,14 @@ import { AxiosError } from 'axios';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { FaXmark } from 'react-icons/fa6';
 import { QUESTION_TYPES, FORM_FIELDS, DEFAULT_QUESTION } from '../constants/constants';
-import { showToast } from '@/assets/utils/toatify';
-import Loader from '@/app/[lang]/components/Loader';
+import { showToast } from '@assets/utils/toatify';
+import Loader from '@components/Loader';
 import { Blanks } from './Blanks';
 import { Options } from './Options';
 import { MediaSection } from './Media';
 import { CorrectAnswers } from './CorrectAnswers';
-import { QuestionModalProps } from '@/types/component.t';
-import { Blank, CreateQuestion, Option, QuestionType } from '@/types/quiz.t';
+import { QuestionModalProps } from 'types/component';
+import { Blank, CreateQuestion, Option, QuestionType } from 'types/quiz';
 
 const QuestionModal = React.memo(({ title, topics, levels, categories, isOpen, onClose, onSubmit, isLoading, initialData, validOrInvalid }: QuestionModalProps) => {
     const [formData, setFormData] = useState<CreateQuestion>(DEFAULT_QUESTION);

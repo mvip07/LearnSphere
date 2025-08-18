@@ -22,18 +22,39 @@
                 "name": "next"
             }
         ],
-        "baseUrl": ".",
+        "baseUrl": "src",
         "paths": {
-            "@/*": [
-                "src/*"
-            ],
-            "@fe/*": [
-                "src/app/[lang]/*"
-            ],
             "@components/*": [
-                "src/app/[lang]/components/*"
+                "app/[lang]/components/*"
+            ],
+            "@hooks/*": [
+                "hooks/*"
+            ],
+            "@features/*": [
+                "features/*"
+            ],
+            "@services/*": [
+                "services/*"
+            ],
+            "@styles/*": [
+                "styles/*"
+            ],
+            "@types/*": [
+                "types/*"
+            ],
+            "@lib/*": [
+                "lib/*"
+            ],
+            "@context/*": [
+                "context/*"
+            ],
+            "@assets/*": [
+                "assets/*"
+            ],
+            "@stores/*": [
+                "stores/*"
             ]
-        },
+        }
     },
     "include": [
         "next-env.d.ts",

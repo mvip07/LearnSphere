@@ -8,8 +8,8 @@ import Answer from "@components/cabinet/Answer";
 import Follow from "@components/cabinet/Follow";
 import Result from "@components/cabinet/Result";
 import Categories from "@components/cabinet/Categories";
-import useTranslation from "@/services/languages";
-import { useAppContext } from "@/context/AppContext";
+import useTranslation from "@services/languages";
+import { useAppContext } from "@context/AppContext";
 
 export default React.memo(function Cabinet() {
     const t = useTranslation();

@@ -1,6 +1,6 @@
 import { memo, useEffect, useRef } from "react";
 import CircleProgress from "./Progress";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
 
 const QuizTimer = memo(({ questionId }: { questionId: string }) => {
     const { timeLeft, setTimeLeft, questions, count, onTimeUp, answers, setAnswer } = useQuizStore();

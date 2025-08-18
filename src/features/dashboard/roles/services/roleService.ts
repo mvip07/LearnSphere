@@ -1,7 +1,7 @@
-import API from "@/assets/api";
-import { QueryParams } from "@/types/filter.t";
-import { CreateRole, EditPermission } from "@/types/role.t";
-import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "@/types/api.t";
+import API from "@assets/api";
+import { QueryParams } from "types/filter";
+import { CreateRole, EditPermission } from "types/role";
+import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "types/api";
 
 export const create = async (data: CreateRole): Promise<CreateReq> => {
     try {

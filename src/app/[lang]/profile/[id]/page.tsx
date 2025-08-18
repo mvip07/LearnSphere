@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useParams } from "next/navigation"
 import { FaMessage, FaPlus, FaMinus } from "react-icons/fa6";
-import useTranslation from "@/services/languages";
-import useProfile from "@/features/profile/hooks/useProfile";
+import useTranslation from "@services/languages";
+import useProfile from "@features/profile/hooks/useProfile";
 
 export default function ProfileById() {
     const params = useParams();

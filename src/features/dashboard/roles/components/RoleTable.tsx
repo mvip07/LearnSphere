@@ -2,8 +2,8 @@ import { useMemo, useState, useCallback } from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashCan, FaCheck } from "react-icons/fa6";
 import PermissionDropdown from "./PermissionDropdown";
-import { Permission } from "@/types/role.t";
-import { RoleTableProps } from "@/types/component.t";
+import { Permission } from "types/role";
+import { RoleTableProps } from "types/component";
 
 const RoleTable = ({ roles, checked, isLoading, permissions, permissionChecked, validOrInvalid, onEdit, onDelete, handlePermissionEdit, setChecked, setPermissionChecked }: RoleTableProps) => {
     const [dropdown, setDropdown] = useState<{ roleId: string, active: boolean }>({ roleId: "", active: false });

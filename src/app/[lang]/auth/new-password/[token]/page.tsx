@@ -6,8 +6,8 @@ import { useLanguage } from "@components/navbar/hooks";
 import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
-import { useNewPassword } from "@/features/auth/hooks/useNewPassword";
-import useTranslation from "@/services/languages";
+import { useNewPassword } from "@features/auth/hooks/useNewPassword";
+import useTranslation from "@services/languages";
 
 export default function NewPassword() {
     const t = useTranslation()

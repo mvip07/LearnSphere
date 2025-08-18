@@ -1,9 +1,9 @@
 import React from "react";
-import { Filter } from "./filter.t";
-import { User, CreateUser } from "./auth.t";
-import { ValidationErrors } from "./general.t";
-import { Permission, CreatePermission, Role, CreateRole, EditPermission } from "./role.t";
-import { Category, Level, Topic, Question, CreateQuestion, CreateCategory, CreateLevel, CreateTopic } from "./quiz.t";
+import { Filter } from "./filter";
+import { User, CreateUser } from "./auth";
+import { ValidationErrors } from "./general";
+import { Permission, CreatePermission, Role, CreateRole, EditPermission } from "./role";
+import { Category, Level, Topic, Question, CreateQuestion, CreateCategory, CreateLevel, CreateTopic } from "./quiz";
 
 export interface UseCategoriesReturn {
     page: number;

@@ -2,8 +2,8 @@
 
 import { AnimatePresence } from "framer-motion";
 import { createContext, useContext, useState } from "react";
-import { SphereLoader } from "@/app/[lang]/components/LoaderContainer";
-import { LoaderContextType } from "@/types/state.t";
+import { SphereLoader } from "@components/LoaderContainer";
+import { LoaderContextType } from "types/state";
 
 const LoaderContext = createContext<LoaderContextType | undefined>(undefined);
 

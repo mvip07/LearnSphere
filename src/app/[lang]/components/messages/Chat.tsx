@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { FaArrowLeft, FaPaperPlane, FaSliders } from "react-icons/fa6";
 
-import { useChats } from "@/features/cabinet/messages/hooks/useChats";
-import { formatDate } from "@/features/cabinet/messages/utils/formatDate";
-import { useElementHeights } from "@/features/cabinet/hooks/useElementHeights";
-import useTranslation from "@/services/languages";
-import { useSocketContext } from "@/context/AppContext";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
-import { ChatProps } from "@/types/chat.t";
+import { useChats } from "@features/cabinet/messages/hooks/useChats";
+import { formatDate } from "@features/cabinet/messages/utils/formatDate";
+import { useElementHeights } from "@features/cabinet/hooks/useElementHeights";
+import useTranslation from "@services/languages";
+import { useSocketContext } from "@context/AppContext";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { ChatProps } from "types/chat";
 
 const Chat = ({ currentUserId, receiverUserId, handleTyping, typingUsers, message, messages, setMessage, sendMessage }: ChatProps) => {
     const t = useTranslation()

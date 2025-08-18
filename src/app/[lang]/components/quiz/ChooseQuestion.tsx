@@ -9,9 +9,9 @@ import LevelSection from "./ChooseQuestion/LevelSection";
 import TopicSection from "./ChooseQuestion/TopicSection";
 import CategorySection from "./ChooseQuestion/CategorySection";
 import { QuestionNumberSection } from "./ChooseQuestion/QuestionNumberSection";
-import useTranslation from "@/services/languages";
-import { useQuizStore } from "@/features/cabinet/quiz/hooks/useQuizStore";
-import { useGoToNextPage } from "@/hooks/useGoToNextPage";
+import useTranslation from "@services/languages";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
+import { useGoToNextPage } from "@hooks/useGoToNextPage";
 
 const ChooseQuestion = () => {
     const router = useRouter();

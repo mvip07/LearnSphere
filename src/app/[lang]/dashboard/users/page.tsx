@@ -1,5 +1,5 @@
 "use client";
-import Users from "@/features/dashboard/users/Users";
+import Users from "@features/dashboard/users/Users";
 
 export default function UsersPage() {
     return <Users />;

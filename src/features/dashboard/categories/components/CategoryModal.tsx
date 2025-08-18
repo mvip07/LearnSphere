@@ -2,9 +2,9 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { FaUpload, FaXmark } from "react-icons/fa6";
-import Loader from "@/app/[lang]/components/Loader";
-import { CategoryModalProps } from "@/types/component.t";
-import { CreateCategory } from "@/types/quiz.t";
+import Loader from "@components/Loader";
+import { CategoryModalProps } from "types/component";
+import { CreateCategory } from "types/quiz";
 
 export const CategoryModal = ({ title, isOpen, isLoading, onClose, onSubmit, initialData, validOrInvalid }: CategoryModalProps) => {
     const fileInputRef = useRef<HTMLInputElement>(null);

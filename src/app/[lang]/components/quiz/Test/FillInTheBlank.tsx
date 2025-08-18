@@ -1,6 +1,6 @@
 import { useParams } from "next/navigation";
-import { handleAnswerUpdate } from "@/features/cabinet/quiz/utils/handleAnswerUpdate";
-import { FillInTheBlankProps } from "@/types/component.t";
+import { handleAnswerUpdate } from "@features/cabinet/quiz/utils/handleAnswerUpdate";
+import { FillInTheBlankProps } from "types/component";
 
 const FillInTheBlank = ({ question }: FillInTheBlankProps) => {
     const { lang } = useParams() as { lang: "en" | "uz" | "ru" };

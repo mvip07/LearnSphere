@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "@components/navbar/Navbar";
 import Sidebar from "@components/sidebar/Sidebar";
-import { AppProvider } from "@/context/AppContext";
-import { CABINETSIDEBAR } from "@/assets/utils/sideBarData";
+import { AppProvider } from "@context/AppContext";
+import { CABINETSIDEBAR } from "@assets/utils/sideBarData";
 
 export const metadata = {
     title: "Edit Profile - Manage Your Account",

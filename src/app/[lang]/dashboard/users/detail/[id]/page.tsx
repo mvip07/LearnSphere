@@ -2,15 +2,15 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import useTranslation from "@/services/languages";
-import { useAppContext } from "@/context/AppContext";
-import About from "@/app/[lang]/components/cabinet/About";
-import Level from "@/app/[lang]/components/cabinet/Level";
-import Topic from "@/app/[lang]/components/cabinet/Topic";
-import Answer from "@/app/[lang]/components/cabinet/Answer";
-import Result from "@/app/[lang]/components/cabinet/Result";
-import Follow from "@/app/[lang]/components/cabinet/Follow";
-import Categories from "@/app/[lang]/components/cabinet/Categories";
+import useTranslation from "@services/languages";
+import { useAppContext } from "@context/AppContext";
+import About from "@components/cabinet/About";
+import Level from "@components/cabinet/Level";
+import Topic from "@components/cabinet/Topic";
+import Answer from "@components/cabinet/Answer";
+import Result from "@components/cabinet/Result";
+import Follow from "@components/cabinet/Follow";
+import Categories from "@components/cabinet/Categories";
 
 export default function UserDetail() {
     const t = useTranslation();

@@ -1,12 +1,12 @@
 import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { loginRequest } from "../api/authApi";
-import { showToast } from "@/assets/utils/toatify";
-import { ApiErrorProps } from "@/types/apiError.t";
-import { ValidationErrors } from "@/types/general.t";
-import { LoginUser, VisiblePassword } from "@/types/auth.t";
-import { useVerificationStore } from '@/stores/verificationStore';
-import { handleApiError } from "@/services/handleApiError/handleApiError";
+import { showToast } from "@assets/utils/toatify";
+import { ApiErrorProps } from "types/apiError";
+import { ValidationErrors } from "types/general";
+import { LoginUser, VisiblePassword } from "types/auth";
+import { useVerificationStore } from '@stores/verificationStore';
+import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useLogin = () => {
     const router = useRouter();

@@ -1,5 +1,5 @@
 import { FaXmark } from 'react-icons/fa6';
-import { ValidationErrors } from '@/types/general.t';
+import { ValidationErrors } from 'types/general';
 
 interface CorrectAnswersSectionProps {
     questionType: string;

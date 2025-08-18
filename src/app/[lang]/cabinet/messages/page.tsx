@@ -2,7 +2,7 @@
 import Chat from "@components/messages/Chat";
 import ChatUsers from "@components/messages/ChatUsers";
 import WelcomeChat from "@components/messages/WelcomeChat";
-import { useMessages } from "@/features/cabinet/messages/hooks/useMessages";
+import { useMessages } from "@features/cabinet/messages/hooks/useMessages";
 
 export default function Messages() {
     const { message, messages, typingUsers, currentUserId, receiverUserId, setMessage, sendMessage, handleTyping } = useMessages();
