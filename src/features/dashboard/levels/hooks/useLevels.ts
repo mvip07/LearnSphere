@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { create, deleteMultiple, getList, update } from "../services/levelService";
 import { showToast } from "@assets/utils/toatify";
-import { UseLevelReturn } from "types/hook";
-import { CreateLevel, Level } from "types/quiz";
-import { ValidationErrors } from "types/general";
+import { UseLevelReturn } from "src/types/hook";
+import { CreateLevel, Level } from "src/types/quiz";
+import { ValidationErrors } from "src/types/general";
 import { handleApiError } from "@services/handleApiError/handleApiError";
-import { ApiErrorProps } from "types/apiError";
+import { ApiErrorProps } from "src/types/apiError";
 
 export const useLevels = (): UseLevelReturn => {
     const router = useRouter();

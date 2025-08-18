@@ -1,7 +1,7 @@
 import API from "@assets/api";
-import { CreateLevel } from "types/quiz";
-import { QueryParams } from "types/filter";
-import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "types/api";
+import { CreateLevel } from "src/types/quiz";
+import { QueryParams } from "src/types/filter";
+import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "src/types/api";
 
 export const create = async (data: CreateLevel): Promise<CreateReq> => {
     return await API.post("level/create", data);

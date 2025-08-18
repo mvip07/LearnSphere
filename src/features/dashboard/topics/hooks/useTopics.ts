@@ -3,12 +3,12 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { showToast } from '@assets/utils/toatify';
 import { DEFAULT_FILTER } from '../constants/constants';
 import { create, update, getList, deleteMultiple } from '../services/topicService';
-import { UseTopicsReturn } from 'types/hook';
-import { ValidationErrors } from 'types/general';
-import { Filter, QueryParams } from 'types/filter';
-import { Category, CreateTopic, Topic } from 'types/quiz';
+import { UseTopicsReturn } from 'src/types/hook';
+import { ValidationErrors } from 'src/types/general';
+import { Filter, QueryParams } from 'src/types/filter';
+import { Category, CreateTopic, Topic } from 'src/types/quiz';
 import { handleApiError } from '@services/handleApiError/handleApiError';
-import { ApiErrorProps } from 'types/apiError';
+import { ApiErrorProps } from 'src/types/apiError';
 
 const parseQueryParams = (searchParams: URLSearchParams): QueryParams => ({
     page: Number(searchParams.get('page')) || 1,

@@ -2,7 +2,7 @@ import { AxiosError } from "axios";
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect, useRef, useCallback, ChangeEvent, KeyboardEvent, ClipboardEvent } from "react";
 import { showToast } from "@assets/utils/toatify";
-import { ApiErrorProps } from "types/apiError";
+import { ApiErrorProps } from "src/types/apiError";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 import { sendVerificationCode, confirmVerificationCode } from "../api/authApi";
 import { useVerificationStore, initializeVerificationStore } from '@stores/verificationStore';

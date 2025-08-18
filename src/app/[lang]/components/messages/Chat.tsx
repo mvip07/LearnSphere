@@ -7,7 +7,7 @@ import { useElementHeights } from "@features/cabinet/hooks/useElementHeights";
 import useTranslation from "@services/languages";
 import { useSocketContext } from "@context/AppContext";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
-import { ChatProps } from "types/chat";
+import { ChatProps } from "src/types/chat";
 
 const Chat = ({ currentUserId, receiverUserId, handleTyping, typingUsers, message, messages, setMessage, sendMessage }: ChatProps) => {
     const t = useTranslation()

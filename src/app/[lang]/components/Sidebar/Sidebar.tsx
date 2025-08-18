@@ -5,7 +5,7 @@ import { FaClock, FaXmark } from "react-icons/fa6";
 import Link from "next/link";
 import { useActive } from "./useActive";
 import useTranslation from "@services/languages";
-import { SideBarProps } from "types/component";
+import { SideBarProps } from "src/types/component";
 import { useAppContext } from "@context/AppContext";
 import { FaBars } from "react-icons/fa";
 

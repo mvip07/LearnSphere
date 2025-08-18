@@ -1,6 +1,6 @@
-import { CreateUser } from "types/auth";
-import { Filter, FilterConfig } from "types/filter";
-import { Role } from "types/role";
+import { CreateUser } from "src/types/auth";
+import { Filter, FilterConfig } from "src/types/filter";
+import { Role } from "src/types/role";
 
 export const COLUMNS = [
     { key: 'user', label: 'User', span: 2 },

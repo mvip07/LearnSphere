@@ -1,5 +1,5 @@
 import { handleAnswerUpdate } from "@features/cabinet/quiz/utils/handleAnswerUpdate";
-import { MultipleChoiceProps } from "types/component";
+import { MultipleChoiceProps } from "src/types/component";
 
 const MultipleChoice = ({ answers, question }: MultipleChoiceProps) => {
     const userAnswer = answers.find((a) => a.questionId === question.id);

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Empty from '../Empty';
-import { Follower, Following } from 'types/auth';
+import { Follower, Following } from 'src/types/auth';
 import useTranslation from '@services/languages';
-import { FollowSectionProps } from 'types/component';
+import { FollowSectionProps } from 'src/types/component';
 import { useFollow } from '@features/follow/hooks/useFollow';
 import { getStoredUser } from '@assets/api/auth';
 

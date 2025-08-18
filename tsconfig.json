@@ -22,37 +22,37 @@
                 "name": "next"
             }
         ],
-        "baseUrl": "src",
+        "baseUrl": ".",
         "paths": {
             "@components/*": [
-                "app/[lang]/components/*"
+                "src/app/[lang]/components/*"
             ],
             "@hooks/*": [
-                "hooks/*"
+                "src/hooks/*"
             ],
             "@features/*": [
-                "features/*"
+                "src/features/*"
             ],
             "@services/*": [
-                "services/*"
+                "src/services/*"
             ],
             "@styles/*": [
-                "styles/*"
+                "src/styles/*"
             ],
             "@types/*": [
-                "types/*"
+                "src/types/*"
             ],
             "@lib/*": [
-                "lib/*"
+                "src/lib/*"
             ],
             "@context/*": [
-                "context/*"
+                "src/context/*"
             ],
             "@assets/*": [
-                "assets/*"
+                "src/assets/*"
             ],
             "@stores/*": [
-                "stores/*"
+                "src/stores/*"
             ]
         }
     },

@@ -1,7 +1,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useCallback, useMemo, useContext } from "react";
 import { ThemeContext } from "../ThemeProvider";
-import { User } from "types/auth";
+import { User } from "src/types/auth";
 
 const SUPPORTED_LOCALES = ["uz", "en", "ru"] as const;
 const DEFAULT_LOCALE = "uz";

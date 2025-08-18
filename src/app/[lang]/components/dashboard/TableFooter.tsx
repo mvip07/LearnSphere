@@ -1,6 +1,6 @@
 import React from "react";
 import { FaLeftLong, FaRightLong } from "react-icons/fa6";
-import { TableFooterProps } from "types/component";
+import { TableFooterProps } from "src/types/component";
 
 export const TableFooter = ({ page, onPrev, onNext, totalPages }: TableFooterProps) => {
     return (

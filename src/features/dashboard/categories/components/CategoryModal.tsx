@@ -3,8 +3,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { FaUpload, FaXmark } from "react-icons/fa6";
 import Loader from "@components/Loader";
-import { CategoryModalProps } from "types/component";
-import { CreateCategory } from "types/quiz";
+import { CategoryModalProps } from "src/types/component";
+import { CreateCategory } from "src/types/quiz";
 
 export const CategoryModal = ({ title, isOpen, isLoading, onClose, onSubmit, initialData, validOrInvalid }: CategoryModalProps) => {
     const fileInputRef = useRef<HTMLInputElement>(null);

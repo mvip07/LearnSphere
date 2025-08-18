@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import Loader from "@components/Loader";
-import { CreatePermission } from "types/role";
-import { PermissionModalProps } from "types/component";
+import { CreatePermission } from "src/types/role";
+import { PermissionModalProps } from "src/types/component";
 
 export const PermissionModal = ({ title, isOpen, onClose, onSubmit, isLoading, initialData, validOrInvalid }: PermissionModalProps) => {
     const [formData, setFormData] = useState<CreatePermission>({ name: "", path: "" });

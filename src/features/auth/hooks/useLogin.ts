@@ -2,9 +2,9 @@ import { useRouter } from "next/navigation";
 import { useState, useCallback } from "react";
 import { loginRequest } from "../api/authApi";
 import { showToast } from "@assets/utils/toatify";
-import { ApiErrorProps } from "types/apiError";
-import { ValidationErrors } from "types/general";
-import { LoginUser, VisiblePassword } from "types/auth";
+import { ApiErrorProps } from "src/types/apiError";
+import { ValidationErrors } from "src/types/general";
+import { LoginUser, VisiblePassword } from "src/types/auth";
 import { useVerificationStore } from '@stores/verificationStore';
 import { handleApiError } from "@services/handleApiError/handleApiError";
 

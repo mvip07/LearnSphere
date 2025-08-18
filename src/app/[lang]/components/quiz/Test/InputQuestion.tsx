@@ -1,5 +1,5 @@
 import { handleAnswerUpdate } from "@features/cabinet/quiz/utils/handleAnswerUpdate";
-import { InputProps } from "types/component";
+import { InputProps } from "src/types/component";
 
 const InputQuestion = ({ question }: InputProps) => {
     return (

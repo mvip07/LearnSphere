@@ -8,7 +8,7 @@ import QuestionModal from './components/QuestionModal';
 import QuestionSorted from './components/QuestionSorted';
 import { QuestionTable } from './components/QuestionTable';
 import { useQuestions } from './hooks/useQuestions';
-import { Question } from 'types/quiz';
+import { Question } from 'src/types/quiz';
 
 export default function Questions() {
     const {

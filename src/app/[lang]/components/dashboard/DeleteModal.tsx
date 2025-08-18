@@ -1,6 +1,6 @@
 import React from "react";
 import { FaTriangleExclamation } from "react-icons/fa6"
-import { DeleteModalProps } from "types/component";
+import { DeleteModalProps } from "src/types/component";
 
 export const DeleteModal = ({ title, text, setCancel, setDelete }: DeleteModalProps) => {
     return (

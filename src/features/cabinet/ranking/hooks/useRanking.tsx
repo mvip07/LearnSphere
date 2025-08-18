@@ -1,8 +1,8 @@
 import { useState, useCallback, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { fetchProfileRanking } from "../api/rankingApi";
-import { ApiErrorProps } from "types/apiError";
-import { ProfileRankingState, SortByState } from "types/filter";
+import { ApiErrorProps } from "src/types/apiError";
+import { ProfileRankingState, SortByState } from "src/types/filter";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useProfileRanking = () => {

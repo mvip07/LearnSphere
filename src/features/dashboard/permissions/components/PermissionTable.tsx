@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaCheck, FaTrashCan } from "react-icons/fa6";
-import { PermissionTableProps } from "types/component";
+import { PermissionTableProps } from "src/types/component";
 
 export const PermissionTable = ({ checked, onEdit, onDelete, setChecked, permissions }: PermissionTableProps) => {
     const handleRowCheck = useCallback((permissionId: string) => {

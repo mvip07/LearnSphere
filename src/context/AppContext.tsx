@@ -3,9 +3,9 @@ import socketIOClient from "socket.io-client";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, useRef } from "react";
 import API from "@assets/api";
 import { useLoader } from "./LoaderContext";
-import { UserDto } from "types/auth";
-import { ApiErrorProps } from "types/apiError";
-import { CabinetContextType, SocketContextType, UserFollowData } from "types/state";
+import { UserDto } from "src/types/auth";
+import { ApiErrorProps } from "src/types/apiError";
+import { CabinetContextType, SocketContextType, UserFollowData } from "src/types/state";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import UZ from "../../../../../public/images/uz.png"
 import RU from "../../../../../public/images/ru.png"
 import EN from "../../../../../public/images/en.png"
-import { LanguageDropdownProps } from "types/component";
+import { LanguageDropdownProps } from "src/types/component";
 
 const languages = [
     { code: "uz", title: "uzbek", image: UZ },

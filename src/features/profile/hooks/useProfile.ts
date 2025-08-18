@@ -2,8 +2,8 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 import { showToast } from "@assets/utils/toatify";
 import { useLoader } from "@context/LoaderContext";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
-import { User } from "types/auth";
-import { ApiErrorProps } from "types/apiError";
+import { User } from "src/types/auth";
+import { ApiErrorProps } from "src/types/apiError";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 import { profileById, follow, unFollow, checkFollowStatus } from "../api/profileApi";
 

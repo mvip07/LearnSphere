@@ -1,7 +1,7 @@
 import API from '@assets/api';
-import { CreateUser } from 'types/auth';
-import { QueryParams } from 'types/filter';
-import { CreateReq, DeleteReq, GetListReq, UpdateReq } from 'types/api';
+import { CreateUser } from 'src/types/auth';
+import { QueryParams } from 'src/types/filter';
+import { CreateReq, DeleteReq, GetListReq, UpdateReq } from 'src/types/api';
 
 export const create = async (data: CreateUser): Promise<CreateReq> => {
     return await API.post('user/create', data);

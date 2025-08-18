@@ -1,5 +1,5 @@
 'use client';
-import { Translation } from 'types/general';
+import { Translation } from 'src/types/general';
 import CookieConsent from 'react-cookie-consent';
 
 export default function CookieBanner({ t }: { t: Translation }) {

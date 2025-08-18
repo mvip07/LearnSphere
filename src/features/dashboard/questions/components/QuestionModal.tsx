@@ -8,8 +8,8 @@ import { Blanks } from './Blanks';
 import { Options } from './Options';
 import { MediaSection } from './Media';
 import { CorrectAnswers } from './CorrectAnswers';
-import { QuestionModalProps } from 'types/component';
-import { Blank, CreateQuestion, Option, QuestionType } from 'types/quiz';
+import { QuestionModalProps } from 'src/types/component';
+import { Blank, CreateQuestion, Option, QuestionType } from 'src/types/quiz';
 
 const QuestionModal = React.memo(({ title, topics, levels, categories, isOpen, onClose, onSubmit, isLoading, initialData, validOrInvalid }: QuestionModalProps) => {
     const [formData, setFormData] = useState<CreateQuestion>(DEFAULT_QUESTION);

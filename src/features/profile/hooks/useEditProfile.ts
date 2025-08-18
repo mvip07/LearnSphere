@@ -6,8 +6,8 @@ import { useAppContext } from "@context/AppContext";
 import { deleteProfileImage, updateUserProfile } from "../api/editProfileApi";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
 import { useVerificationStore } from "@stores/verificationStore";
-import { ProfileEdit } from "types/auth";
-import { ValidationErrors } from "types/general";
+import { ProfileEdit } from "src/types/auth";
+import { ValidationErrors } from "src/types/general";
 
 export const useEditProfile = () => {
     const goTo = useGoToNextPage()

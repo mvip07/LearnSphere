@@ -1,5 +1,5 @@
 import API from "@assets/api/index";
-import { ProfileEdit } from "types/auth";
+import { ProfileEdit } from "src/types/auth";
 
 export const updateUserProfile = async (userId: string, profile: ProfileEdit) => {
   return await API.put(`user/update/${userId}`, profile);

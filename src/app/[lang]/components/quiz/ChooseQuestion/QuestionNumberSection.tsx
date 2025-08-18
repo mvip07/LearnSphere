@@ -1,5 +1,5 @@
 import useTranslation from "@services/languages";
-import { QuestionNumberProps } from "types/component";
+import { QuestionNumberProps } from "src/types/component";
 
 export const QuestionNumberSection = ({ options, onToggle }: QuestionNumberProps) => {
     const t = useTranslation()

@@ -1,6 +1,6 @@
 import React from "react";
 import Empty from "../Empty";
-import { Topic } from "types/quiz";
+import { Topic } from "src/types/quiz";
 
 const Topics = ({ topics }: { topics: Topic[] }) => {
     return topics.length ? (

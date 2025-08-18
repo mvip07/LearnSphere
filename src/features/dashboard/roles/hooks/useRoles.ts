@@ -3,9 +3,9 @@ import { useState, useEffect, useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { showToast } from "@assets/utils/toatify";
 import { create, deleteMultiple, getList, update, updatePermission } from "../services/roleService";
-import { UseRolesReturn } from "types/hook";
-import { CreateRole, EditPermission, Permission, Role } from "types/role";
-import { ValidationErrors } from "types/general";
+import { UseRolesReturn } from "src/types/hook";
+import { CreateRole, EditPermission, Permission, Role } from "src/types/role";
+import { ValidationErrors } from "src/types/general";
 
 export const useRoles = (): UseRolesReturn => {
     const router = useRouter();

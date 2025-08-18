@@ -1,6 +1,6 @@
 import React from "react";
 import useTranslation from "@services/languages";
-import { Result } from "types/quiz";
+import { Result } from "src/types/quiz";
 
 const Results = ({ results }: { results: Result }) => {
     const t = useTranslation();

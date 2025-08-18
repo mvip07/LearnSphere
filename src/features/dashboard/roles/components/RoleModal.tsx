@@ -1,8 +1,8 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { FaCheck, FaXmark } from "react-icons/fa6";
 import Loader from "@components/Loader";
-import { CreateRole } from "types/role";
-import { RoleModalProps } from "types/component";
+import { CreateRole } from "src/types/role";
+import { RoleModalProps } from "src/types/component";
 
 const RoleModal = ({ title, isOpen, onClose, onSubmit, isLoading, permissions, initialData, validOrInvalid }: RoleModalProps) => {
     const [formData, setFormData] = useState<CreateRole>({ name: "", permissions: [] });

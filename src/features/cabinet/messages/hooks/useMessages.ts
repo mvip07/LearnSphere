@@ -5,9 +5,9 @@ import { useState, useEffect, useCallback } from "react";
 import socket from "@assets/api/socket";
 import { getStoredUser } from "@assets/api/auth";
 import { fetchMessages } from "../api/messagesApi";
-import { Message } from "types/chat";
+import { Message } from "src/types/chat";
 import { handleApiError } from "@services/handleApiError/handleApiError";
-import { ApiErrorProps } from "types/apiError";
+import { ApiErrorProps } from "src/types/apiError";
 
 export const useMessages = () => {
     const searchParams = useSearchParams();

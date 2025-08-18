@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { getUserRequest } from "../api/messagesApi";
-import { User } from "types/auth";
-import { Message } from "types/chat";
+import { User } from "src/types/auth";
+import { Message } from "src/types/chat";
 
 export const useChats = (receiverUserId: string, messages: Message[]) => {
     const [user, setUser] = useState<User | null>(null);

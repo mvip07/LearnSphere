@@ -1,4 +1,4 @@
-import { ApiErrorProps } from "types/apiError";
+import { ApiErrorProps } from "src/types/apiError";
 import { useAppContext } from "@context/AppContext";
 import { showToast } from "@assets/utils/toatify";
 import { followApi, unFollowApi } from "../api/follow";

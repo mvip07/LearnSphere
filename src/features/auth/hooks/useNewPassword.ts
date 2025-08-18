@@ -2,9 +2,9 @@ import { useState, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { showToast } from "@assets/utils/toatify";
 import { resetPasswordRequest } from "../api/authApi";
-import { ValidationErrors } from "types/general";
-import { NewPasswordState, VisiblePassword } from "types/auth";
-import { ApiErrorProps } from "types/apiError";
+import { ValidationErrors } from "src/types/general";
+import { NewPasswordState, VisiblePassword } from "src/types/auth";
+import { ApiErrorProps } from "src/types/apiError";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useNewPassword = () => {

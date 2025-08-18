@@ -1,5 +1,5 @@
 import API from "@assets/api/index";
-import { SortByState } from "types/filter";
+import { SortByState } from "src/types/filter";
 
 export const fetchProfileRanking = async (sortBy: SortByState) => {
     const params = new URLSearchParams();

@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import { BiLeftArrowAlt } from "react-icons/bi";
-import { useLanguage } from "../../components/navbar/hooks";
+import { useLanguage } from "@components/navbar/hooks";
 import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 import useTranslation from "@services/languages";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";

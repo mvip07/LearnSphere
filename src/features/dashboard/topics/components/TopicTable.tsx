@@ -1,6 +1,6 @@
 import { FaEdit } from "react-icons/fa";
 import { FaCheck, FaTrashCan } from "react-icons/fa6";
-import { TopicTableProps } from "types/component";
+import { TopicTableProps } from "src/types/component";
 
 export const TopicTable = ({ topics, checked, setChecked, onEdit, onDelete }: TopicTableProps) => {
     return (

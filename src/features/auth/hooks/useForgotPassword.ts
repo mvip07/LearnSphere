@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { showToast } from "@assets/utils/toatify";
 import { forgotPasswordRequest } from "../api/authApi";
-import { ForgotPasswordState } from "types/auth";
-import { ValidationErrors } from "types/general";
-import { ApiErrorProps } from "types/apiError";
+import { ForgotPasswordState } from "src/types/auth";
+import { ValidationErrors } from "src/types/general";
+import { ApiErrorProps } from "src/types/apiError";
 import { handleApiError } from "@services/handleApiError/handleApiError";
 
 export const useForgotPassword = () => {

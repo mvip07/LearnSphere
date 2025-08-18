@@ -2,7 +2,7 @@ import Image from "next/image";
 import useTranslation from "@services/languages";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { FaCoins, FaXmark } from "react-icons/fa6";
-import { QuizDetailsProps } from "types/component";
+import { QuizDetailsProps } from "src/types/component";
 
 const QuizDetails = ({ answer, questions, lang, onClose }: QuizDetailsProps) => {
     const t = useTranslation();

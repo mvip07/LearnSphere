@@ -1,6 +1,6 @@
 import React from "react";
 import useTranslation from "@services/languages";
-import { TableHeaderProps2 } from "types/component";
+import { TableHeaderProps2 } from "src/types/component";
 
 const TableHeader = ({ sortBy, handleSortByChange }: TableHeaderProps2) => {
     const t = useTranslation()

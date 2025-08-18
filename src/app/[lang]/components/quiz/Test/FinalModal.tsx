@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { FaCircleCheck } from "react-icons/fa6";
 import useTranslation from "@services/languages";
 import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
-import { FinalModalProps } from "types/component";
+import { FinalModalProps } from "src/types/component";
 
 const FinalModal = ({ total, totalCoins, correctAnswers }: FinalModalProps) => {
     const router = useRouter();

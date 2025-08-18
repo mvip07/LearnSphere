@@ -4,10 +4,10 @@ import { immer } from "zustand/middleware/immer";
 import { showToast } from "@assets/utils/toatify";
 import { encryptedStorage } from "@lib/secureStorage";
 import { getCategories, getFiltered, getLevels, getQuestionByIds, getTopics, postAnswers } from "@features/cabinet/quiz/services/quizServices";
-import { QuizState } from "types/state";
-import { Question } from "types/quiz";
+import { QuizState } from "src/types/state";
+import { Question } from "src/types/quiz";
 import { handleApiError } from "@services/handleApiError/handleApiError";
-import { ApiErrorProps } from "types/apiError";
+import { ApiErrorProps } from "src/types/apiError";
 
 const QUIZTEST_STORAGE = process.env.NEXT_PUBLIC_QUIZTEST_STORAGE || "quiz_storage";
 

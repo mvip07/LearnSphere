@@ -2,7 +2,7 @@ import { memo } from "react";
 import Image from "next/image";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import useTranslation from "@services/languages";
-import { UserListProps } from "types/component";
+import { UserListProps } from "src/types/component";
 
 const UserList = memo(({ user, index, page }: UserListProps) => {
     const t = useTranslation();

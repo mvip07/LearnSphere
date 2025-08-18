@@ -1,5 +1,5 @@
 import API from "@assets/api/index";
-import { AnswerResult, CategoriesResponse, LevelsResponse, QuestionsResponse, TopicsResponse } from "types/api";
+import { AnswerResult, CategoriesResponse, LevelsResponse, QuestionsResponse, TopicsResponse } from "src/types/api";
 
 export const getCategories = async (): Promise<CategoriesResponse> => {
     return await API.get("question/categories");

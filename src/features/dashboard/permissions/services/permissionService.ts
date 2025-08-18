@@ -1,7 +1,7 @@
 import API from "@assets/api";
-import { QueryParams } from "types/filter";
-import { CreatePermission } from "types/role";
-import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "types/api";
+import { QueryParams } from "src/types/filter";
+import { CreatePermission } from "src/types/role";
+import { CreateReq, DeleteReq, GetListReq, UpdateReq } from "src/types/api";
 
 export const create = async (data: CreatePermission): Promise<CreateReq> => {
     return await API.post("permission/create", data);

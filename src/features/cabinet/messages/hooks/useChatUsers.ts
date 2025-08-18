@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import socket from "@assets/api/socket";
 import { searchUsers } from "../api/messagesApi";
-import { ChatUsers, SearchUsername } from "types/auth";
+import { ChatUsers, SearchUsername } from "src/types/auth";
 
 export const useChatUsers = (currentUserId: string) => {
     const [users, setUsers] = useState<ChatUsers[]>([]);

@@ -1,6 +1,6 @@
 import { FaXmark } from 'react-icons/fa6';
-import { Option } from 'types/quiz';
-import { ValidationErrors } from 'types/general';
+import { Option } from 'src/types/quiz';
+import { ValidationErrors } from 'src/types/general';
 
 interface OptionsSectionProps {
     options: Option[];

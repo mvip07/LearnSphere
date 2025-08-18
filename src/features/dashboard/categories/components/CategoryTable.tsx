@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FaEdit } from "react-icons/fa";
 import { FaCheck, FaTrashCan } from "react-icons/fa6";
-import { CategoryTableProps } from "types/component";
+import { CategoryTableProps } from "src/types/component";
 
 export const CategoryTable = ({ categories, checked, setChecked, onEdit, onDelete }: CategoryTableProps) => {
     return (

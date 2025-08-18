@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { getFilterConfigs } from '../constants/constants';
-import { QuestionSortedProps } from 'types/component';
+import { QuestionSortedProps } from 'src/types/component';
 
 const QuestionSorted = ({ filter, topics, levels, categories, type, updateFilterParam }: QuestionSortedProps) => {
     const filterConfigs = getFilterConfigs(categories, levels, topics, type);

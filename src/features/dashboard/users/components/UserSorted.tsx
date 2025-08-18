@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { getFilterConfigs } from '../constants/constants';
-import { UserSortedProps } from 'types/component';
+import { UserSortedProps } from 'src/types/component';
 
 const UserSorted = ({ filter, roles, updateFilterParam }: UserSortedProps) => {
     const filterConfigs = getFilterConfigs(roles);

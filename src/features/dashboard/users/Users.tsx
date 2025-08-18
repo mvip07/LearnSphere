@@ -8,7 +8,7 @@ import Empty from '@components/Empty';
 import UserModal from './components/UserModal';
 import { DeleteModal } from '@components/dashboard/DeleteModal';
 import UserSorted from './components/UserSorted';
-import { User } from 'types/auth';
+import { User } from 'src/types/auth';
 
 const Users: React.FC = () => {
     const {

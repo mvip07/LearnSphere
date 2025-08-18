@@ -1,5 +1,5 @@
-import { Filter, FilterConfig } from "types/filter";
-import { Category } from "types/quiz";
+import { Filter, FilterConfig } from "src/types/filter";
+import { Category } from "src/types/quiz";
 
 export const getFilterConfigs = (categories: Category[]): FilterConfig[] => [
     {

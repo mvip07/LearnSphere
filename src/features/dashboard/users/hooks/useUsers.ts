@@ -2,14 +2,14 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { showToast } from '@assets/utils/toatify';
 import { DEFAULT_FILTER } from '../constants/constants';
-import { Role } from 'types/role';
-import { UseUsersReturn } from 'types/hook';
-import { CreateUser, User } from 'types/auth';
-import { ValidationErrors } from 'types/general';
-import { Filter, QueryParams } from 'types/filter';
+import { Role } from 'src/types/role';
+import { UseUsersReturn } from 'src/types/hook';
+import { CreateUser, User } from 'src/types/auth';
+import { ValidationErrors } from 'src/types/general';
+import { Filter, QueryParams } from 'src/types/filter';
 import { create, update, getList, deleteMultiple } from '../services/userService';
 import { handleApiError } from '@services/handleApiError/handleApiError';
-import { ApiErrorProps } from 'types/apiError';
+import { ApiErrorProps } from 'src/types/apiError';
 
 const parseQueryParams = (searchParams: URLSearchParams): QueryParams => ({
     page: Number(searchParams.get('page')) || 1,
