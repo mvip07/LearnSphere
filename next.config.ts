@@ -21,8 +21,8 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    telemetry: false, 
     webpack: (config) => {
-        // Ichki yo‘llarni qo‘llab-quvvatlash uchun aliaslarni tuzatish (/* qo‘shildi)
         config.resolve.alias["@components/*"] = path.resolve(__dirname, "src/app/[lang]/components/*");
         config.resolve.alias["@hooks/*"] = path.resolve(__dirname, "src/hooks/*");
         config.resolve.alias["@features/*"] = path.resolve(__dirname, "src/features/*");
