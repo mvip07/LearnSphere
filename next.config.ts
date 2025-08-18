@@ -21,7 +21,6 @@ const nextConfig: NextConfig = {
             },
         ],
     },
-    telemetry: false, 
     webpack: (config) => {
         config.resolve.alias["@components/*"] = path.resolve(__dirname, "src/app/[lang]/components/*");
         config.resolve.alias["@hooks/*"] = path.resolve(__dirname, "src/hooks/*");
