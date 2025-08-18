@@ -17,8 +17,8 @@ export function handleApiError(err: ApiErrorProps, setValidOrInvalid?: (errors: 
     }
 
     if (statusCode === 403) {
-        localStorage.clear();
-        window.location.href = "/403";
+        // localStorage.clear();
+        // window.location.href = "/403";
         return;
     }
 
