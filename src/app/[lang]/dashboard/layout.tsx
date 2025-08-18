@@ -11,12 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <AppProvider>
-            <main id="main" className="p-4 flex">
+            <main id="main" className="p-4">
                 <Sidebar sidebar={DASHBOARDSIDEBAR} />
-                <div className="flex-1">
-                    <Navbar />
-                    {children}
-                </div>
+                <Navbar />
+                {children}
             </main>
         </AppProvider>
     );
