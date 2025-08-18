@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+const path = require("path");
 
 const nextConfig: NextConfig = {
     images: {
@@ -19,6 +20,10 @@ const nextConfig: NextConfig = {
                 pathname: '/**',
             },
         ],
+    },
+    webpack: (config) => {
+        config.resolve.alias["@components"] = path.resolve(__dirname, "src/app/[lang]/components");
+        return config;
     },
 };
 
