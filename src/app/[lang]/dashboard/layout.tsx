@@ -1,6 +1,6 @@
-import Navbar from "../components/navbar/Navbar";
+import Navbar from "@components/navbar/Navbar";
 import { AppProvider } from "@/context/AppContext";
-import Sidebar from "../components/sidebar/Sidebar";
+import Sidebar from "@components/sidebar/Sidebar";
 import { DASHBOARDSIDEBAR } from "@/assets/utils/sideBarData";
 
 export const metadata = {

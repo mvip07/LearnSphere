@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Loader from "../../../components/Loader";
-import { useLanguage } from "../../../components/navbar/hooks";
-import { LanguageDropdown } from "../../../components/navbar/LanguageDropdown";
+import Loader from "@components/Loader";
+import { useLanguage } from "@components/navbar/hooks";
+import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
 import { useNewPassword } from "@/features/auth/hooks/useNewPassword";

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import InteractiveVault from '../components/InteractiveVault';
+import InteractiveVault from '@components/InteractiveVault';
 
 export default function Forbidden() {
     return (

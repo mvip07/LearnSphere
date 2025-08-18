@@ -2,11 +2,11 @@
 import dynamic from "next/dynamic";
 import { useProfileRanking } from "@/features/cabinet/ranking/hooks/useRanking";
 import { useElementHeights } from "@/features/cabinet/hooks/useElementHeights";
-const Empty = dynamic(() => import("../../components/Empty"));
-const Loader = dynamic(() => import("../../components/Loader"));
-const UserList = dynamic(() => import("../../components/rankings/TableBody"));
-const TableHeader = dynamic(() => import("../../components/rankings/TableHeader"));
-const TablePagination = dynamic(() => import("../../components/rankings/TablePagination"));
+const Empty = dynamic(() => import("@components/Empty"));
+const Loader = dynamic(() => import("@components/Loader"));
+const UserList = dynamic(() => import("@components/rankings/TableBody"));
+const TableHeader = dynamic(() => import("@components/rankings/TableHeader"));
+const TablePagination = dynamic(() => import("@components/rankings/TablePagination"));
 
 const Users = () => {
     const { sortBy, isLoading, handlePageChange, totalPages, profileRanking, handleSortByChange } = useProfileRanking();

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/20/solid";
 
-import Loader from "../../components/Loader";
-import { useLanguage } from "../../components/navbar/hooks";
-import { LanguageDropdown } from "../../components/navbar/LanguageDropdown";
+import Loader from "@components/Loader";
+import { useLanguage } from "@components/navbar/hooks";
+import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
 import { useRegister } from "@/features/auth/hooks/useRegister";
 

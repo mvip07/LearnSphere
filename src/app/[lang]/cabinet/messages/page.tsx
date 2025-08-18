@@ -1,7 +1,7 @@
 "use client";
-import Chat from "../../components/messages/Chat";
-import ChatUsers from "../../components/messages/ChatUsers";
-import WelcomeChat from "../../components/messages/WelcomeChat";
+import Chat from "@components/messages/Chat";
+import ChatUsers from "@components/messages/ChatUsers";
+import WelcomeChat from "@components/messages/WelcomeChat";
 import { useMessages } from "@/features/cabinet/messages/hooks/useMessages";
 
 export default function Messages() {

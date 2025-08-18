@@ -2,9 +2,9 @@
 import { useState } from "react";
 import { FaRotateRight } from "react-icons/fa6";
 
-import Loader from "../../../components/Loader";
-import { useLanguage } from "../../../components/navbar/hooks";
-import { LanguageDropdown } from "../../../components/navbar/LanguageDropdown";
+import Loader from "@components/Loader";
+import { useLanguage } from "@components/navbar/hooks";
+import { LanguageDropdown } from "@components/navbar/LanguageDropdown";
 
 import { useVerification } from "@/features/auth/hooks/useVerification";
 import useTranslation from "@/services/languages";

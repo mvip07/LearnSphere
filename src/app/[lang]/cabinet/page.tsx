@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-import Level from "../components/cabinet/Level";
-import About from "../components/cabinet/About";
-import Topic from "../components/cabinet/Topic";
-import Answer from "../components/cabinet/Answer";
-import Follow from "../components/cabinet/Follow";
-import Result from "../components/cabinet/Result";
-import Categories from "../components/cabinet/Categories";
+import Level from "@components/cabinet/Level";
+import About from "@components/cabinet/About";
+import Topic from "@components/cabinet/Topic";
+import Answer from "@components/cabinet/Answer";
+import Follow from "@components/cabinet/Follow";
+import Result from "@components/cabinet/Result";
+import Categories from "@components/cabinet/Categories";
 import useTranslation from "@/services/languages";
 import { useAppContext } from "@/context/AppContext";
 
