@@ -84,22 +84,22 @@ const Answers = ({ answers }: { answers: Answer[] }) => {
 
                         <div className="hidden md:grid grid-cols-6 gap-4 bg-[var(--tableHeader)] dark:bg-[var(--darkTableHeader)] p-4 mt-4">
                             <div className="col-span-2 text-start">
-                                <span className="text-[14px] text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
+                                <span className="text-[14px] text-nowrap text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
                                     {t("quizId")}
                                 </span>
                             </div>
-                            <div className="col-span-1 text-center">
-                                <span className="text-[14px] text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
+                            <div className="col-span-1 text-start">
+                                <span className="text-[14px] text-nowrap text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
                                     {t("earnedCoins")}
                                 </span>
                             </div>
                             <div className="col-span-1 text-center">
-                                <span className="text-[14px] text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
+                                <span className="text-[14px] text-nowrap text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
                                     {t("totalCoins")}
                                 </span>
                             </div>
                             <div className="col-span-2 text-end">
-                                <span className="text-[14px] text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
+                                <span className="text-[14px] text-nowrap text-[var(--textCl)] dark:text-[var(--darkTextCl)] font-medium capitalize leading-normal">
                                     {t("finishedDate")}
                                 </span>
                             </div>
