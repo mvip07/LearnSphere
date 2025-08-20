@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://sizning-domeningiz.com',
+    siteUrl: process.env.SITE_URL,
     generateRobotsTxt: true,
     sitemapSize: 7000,
     exclude: ['/404', '/403'], 
