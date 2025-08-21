@@ -10,8 +10,8 @@ import TopicSection from "./ChooseQuestion/TopicSection";
 import CategorySection from "./ChooseQuestion/CategorySection";
 import { QuestionNumberSection } from "./ChooseQuestion/QuestionNumberSection";
 import useTranslation from "@services/languages";
-import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
+import { useQuizStore } from "@features/cabinet/quiz/hooks/useQuizStore";
 
 const ChooseQuestion = () => {
     const router = useRouter();
@@ -41,6 +41,7 @@ const ChooseQuestion = () => {
         setSelectedCategories,
         setSelectedLevels,
         setSelectedTopics,
+        fetchQuestionsByIds,
     } = useQuizStore();
 
     useEffect(() => {
@@ -48,7 +49,8 @@ const ChooseQuestion = () => {
         if (currentStep === "level") fetchLevels();
         if (currentStep === "topic") fetchTopics();
         if (currentStep === "qnumber") fetchQuestions();
-    }, [currentStep, fetchCategories, fetchLevels, fetchTopics, fetchQuestions]);
+        if (currentStep === "testapp") fetchQuestionsByIds();
+    }, [currentStep, fetchCategories, fetchLevels, fetchTopics, fetchQuestions, fetchQuestionsByIds]);
 
     useEffect(() => {
         const params = new URLSearchParams(searchParams);
@@ -91,11 +93,11 @@ const ChooseQuestion = () => {
             setCurrentStep("qnumber");
             router.replace(`?categoryIds=${selectedCategories.join(",")}&levelIds=${selectedLevels.join(",")}&topicIds=${selectedTopics.join(",")}`);
         } else if (currentStep === "qnumber" && selectedQuestions.length) {
-            router.replace(`/cabinet/quiz?questionIds=${selectedQuestions.join("&questionIds=")}`);
             setCurrentStep("testapp");
+            router.replace(`/cabinet/quiz?questionIds=${selectedQuestions.join("&questionIds=")}`);
         }
     };
- 
+
     if (isLoading) {
         return (
             <div className="w-[60px] h-[60px] relative top-1/2 start-1/2 -translate-y-1/2 -translate-x-1/2">
@@ -126,14 +128,14 @@ const ChooseQuestion = () => {
         case "qnumber":
             const maxQuestions = questions.length;
             const defaultOptions = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
-            const filteredOptions = Array.from(new Set(defaultOptions.filter((opt) => opt <= maxQuestions).concat(maxQuestions)));
+            const filteredOptions = Array.from(new Set(defaultOptions.filter((opt) => opt <= maxQuestions)));
             return (
                 <QuizLayout hTitle={t("howManyQuestions")} arr={selectedQuestions} onSubmit={onSubmit} currentStep={currentStep} handleBack={handleBack}>
                     {questions.length ? <QuestionNumberSection options={filteredOptions} onToggle={toggleQuestion} /> : <Empty />}
                 </QuizLayout>
             );
         case "testapp":
-            return <QuizMenu />;
+            return <QuizMenu />
         default:
             return null;
     }

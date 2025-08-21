@@ -83,7 +83,9 @@ const QuizQuestion = () => {
                     </div>
                 )}
 
-                {renderQuestionComponent()}
+                <div className="my-4">
+                    {renderQuestionComponent()}
+                </div>
             </div>
 
             <div className="w-full p-4 flex justify-end border-t sticky bottom-0 bg-[var(--whi)] dark:bg-[var(--darkBoxBg)] z-20 border-t border-[var(--whiLg)] dark:border-[var(--darkBorderCl)]">

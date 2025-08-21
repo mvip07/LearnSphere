@@ -127,14 +127,15 @@ export const useQuizStore = create<QuizState>()(
             },
 
             fetchQuestionsByIds: async () => {
-                const { selectedQuestions, reset } = get();
+                const { selectedQuestions } = get();
+
                 set({ isLoading: true });
                 try {
-                    reset();
                     const { data } = await getQuestionByIds(selectedQuestions);
                     set({ questions: data.questions, count: 0, timeLeft: data.questions[0]?.time || 0 });
                 } catch (error) {
-                    handleApiError(error as ApiErrorProps)
+                    handleApiError(error as ApiErrorProps);
+                    showToast("error", "Failed to load selected questions");
                 } finally {
                     set({ isLoading: false });
                 }
@@ -163,7 +164,7 @@ export const useQuizStore = create<QuizState>()(
 
             toggleQuestion: (val: string) => {
                 set((state) => {
-                    state.selectedQuestions = [...state.questions].sort(() => 0.5 - Math.random()).slice(0, Number(val)).map(q => q.id);
+                    state.selectedQuestions = [...state.questions].sort(() => 0.5 - Math.random()).slice(0, Math.min(Number(val), [...state.questions].length)).map((q) => q.id);
                 });
             },
 

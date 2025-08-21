@@ -1,20 +1,40 @@
 "use client";
-import React from "react";
-import Image from "next/image";
-import { FaClock, FaXmark } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import { FaBars } from "react-icons/fa";
+import { FaClock, FaXmark } from "react-icons/fa6";
 import { useActive } from "./useActive";
 import useTranslation from "@services/languages";
 import { SideBarProps } from "src/types/component";
 import { useAppContext } from "@context/AppContext";
-import { FaBars } from "react-icons/fa";
 
 const CabinetSideBar = ({ sidebar }: { sidebar: SideBarProps[] }) => {
     const t = useTranslation();
     const { isActive } = useActive()
     const { isSidebarOpen, setIsSidebarOpen } = useAppContext()
+
+    const headerRef = useRef<HTMLElement | null>(null);
+
+    useEffect(() => {
+        if (typeof window === "undefined") return;
+        const handleClickOutside = (e: MouseEvent) => {
+            if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
+                setIsSidebarOpen(false);
+            }
+        };
+
+        if (isSidebarOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isSidebarOpen, setIsSidebarOpen]);
+
     return (
-        <header id="header" className={`bg-[var(--dark)] relative px-4 py-2 p-lg-4 overflow-y-auto scroll-bar-none ${isSidebarOpen ? "active" : ""}`}>
+        <header ref={headerRef} id="header" className={`bg-[var(--dark)] relative px-4 py-2 p-lg-4 overflow-y-auto scroll-bar-none ${isSidebarOpen ? "active" : ""}`}>
             <Link href="/" className="flex items-center justify-between mt-4">
                 <Image className="mx-auto" src="/images/orginal-logo.png" alt="LearnSphere Logo" width={150} height={150} />
             </Link>
