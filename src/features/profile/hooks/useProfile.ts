@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { showToast } from "@assets/utils/toatify";
 import { useLoader } from "@context/LoaderContext";
 import { useGoToNextPage } from "@hooks/useGoToNextPage";
@@ -8,36 +8,31 @@ import { handleApiError } from "@services/handleApiError/handleApiError";
 import { profileById, follow, unFollow, checkFollowStatus } from "../api/profileApi";
 
 const useProfile = (userId: string) => {
-    const { showLoader, hideLoader } = useLoader();
     const goTo = useGoToNextPage();
+    const { showLoader, hideLoader } = useLoader();
     const [user, setUser] = useState<User | null>(null);
     const [isFollowing, setIsFollowing] = useState(false);
     const [currentUserId, setCurrentUserId] = useState<string | null>(null);
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            const storedUser = localStorage.getItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
-            if (storedUser) {
-                try {
-                    const parsedUser = JSON.parse(storedUser);
-                    setCurrentUserId(parsedUser.userId);
-                } catch {
-                    localStorage.removeItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
-                }
+        if (typeof window === "undefined") return;
+        const storedUser = localStorage.getItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
+        if (storedUser) {
+            try {
+                const parsedUser = JSON.parse(storedUser);
+                setCurrentUserId(parsedUser.userId);
+            } catch {
+                localStorage.removeItem(process.env.NEXT_PUBLIC_PROJECT_STORAGE!);
             }
         }
     }, []);
 
-    const loaderFunctions = useMemo(() => ({ showLoader, hideLoader }), [showLoader, hideLoader]);
-
     const fetchUserData = useCallback(async () => {
         if (!userId) return;
-
-        loaderFunctions.showLoader();
+        showLoader();
         try {
-            const { data: profileData } = await profileById(userId);
-            setUser(profileData);
-
+            const { data } = await profileById(userId);
+            setUser(data);
             if (currentUserId && currentUserId !== userId) {
                 const { data: followStatus } = await checkFollowStatus(currentUserId, userId);
                 setIsFollowing(followStatus.isFollowing);
@@ -45,9 +40,13 @@ const useProfile = (userId: string) => {
         } catch (error) {
             handleApiError(error as ApiErrorProps);
         } finally {
-            loaderFunctions.hideLoader();
+            hideLoader();
         }
-    }, [userId, currentUserId, loaderFunctions]);
+    }, [userId, currentUserId]);
+
+    useEffect(() => {
+        fetchUserData();
+    }, [userId]);
 
     const handleFollow = useCallback(async () => {
         if (!currentUserId || !userId) {
@@ -55,33 +54,27 @@ const useProfile = (userId: string) => {
             return;
         }
 
-        loaderFunctions.showLoader();
+        const prevFollowing = isFollowing;
+        setIsFollowing(!prevFollowing);
+
         try {
-            if (isFollowing) {
+            if (prevFollowing) {
                 const { data } = await unFollow(currentUserId, userId);
                 showToast("success", data.message);
-                setIsFollowing(false);
             } else {
                 const { data } = await follow(currentUserId, userId);
                 showToast("success", data.message);
-                setIsFollowing(true);
             }
-            await fetchUserData();
         } catch (error) {
+            setIsFollowing(prevFollowing);
             handleApiError(error as ApiErrorProps);
-        } finally {
-            loaderFunctions.hideLoader();
         }
-    }, [currentUserId, userId, isFollowing, fetchUserData, loaderFunctions]);
+    }, [currentUserId, userId, isFollowing, user]);
 
     const handleMessage = useCallback(() => {
         if (!currentUserId || !userId) return;
         goTo(`cabinet/messages?currentUserId=${currentUserId}&receiverUserId=${userId}`);
     }, [currentUserId, userId, goTo]);
-
-    useEffect(() => {
-        fetchUserData();
-    }, [fetchUserData, userId, currentUserId]);
 
     return {
         user,

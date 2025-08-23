@@ -3,8 +3,8 @@ import Script from 'next/script';
 import { cookies } from 'next/headers';
 import { Montserrat } from "next/font/google";
 import { ToastContainer } from 'react-toastify';
-import { LoaderProvider } from '@context/LoaderContext';
 import CookieBanner from '@components/CookieBanner';
+import { LoaderProvider } from '@context/LoaderContext';
 import { ThemeProvider } from '@components/ThemeProvider';
 
 const montserrat = Montserrat({
